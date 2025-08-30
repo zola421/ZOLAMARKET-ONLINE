@@ -1,0 +1,1173 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ZOLA_MARKET_ONLINE – Offres du jour</title>
+  <meta name="description" content="Boutique en ligne au Cameroun – Laptops, smartphones, accessoires et plus. Livraison rapide Yaoundé, Douala et partout au Cameroun." />
+  <meta property="og:title" content="ZOLA_MARKET_ONLINE – Offres du jour" />
+  <meta property="og:description" content="Boutique en ligne au Cameroun – Laptops, smartphones, accessoires et plus." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://images.unsplash.com/photo-1542831371-29b0f74f9713?q=80&w=1600&auto=format&fit=crop" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    :root{ --brand:#2563eb; --brand-2:#0ea5e9 }
+    html{ scroll-behavior:smooth }
+    body{ font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,"Apple Color Emoji","Segoe UI Emoji" }
+    .glass{ backdrop-filter: blur(8px); background:rgba(255,255,255,.7) }
+    
+    /* Styles pour le modal du panier */
+    .cart-modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: 100%;
+      max-width: 400px;
+      height: 100vh;
+      background: white;
+      box-shadow: -2px 0 5px rgba(0,0,0,0.1);
+      z-index: 1000;
+      overflow-y: auto;
+    }
+    .cart-overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0,0,0,0.5);
+      z-index: 999;
+    }
+    
+    /* Modal détail produit */
+    .product-detail-modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0,0,0,0.8);
+      z-index: 2000;
+      overflow-y: auto;
+    }
+    
+    .product-detail-content {
+      max-width: 4xl;
+      margin: 2rem auto;
+      background: white;
+      border-radius: 1rem;
+      max-height: 90vh;
+      overflow-y: auto;
+    }
+    
+    /* Styles pour le carrousel */
+    .carousel-container {
+      position: relative;
+      width: 100%;
+      height: 400px;
+      overflow: hidden;
+    }
+
+    .carousel-track {
+      display: flex;
+      transition: transform 0.5s ease-in-out;
+      height: 100%;
+    }
+
+    .carousel-slide {
+      min-width: 100%;
+      height: 100%;
+      position: relative;
+    }
+
+    .carousel-slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .carousel-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(255, 255, 255, 0.7);
+      border: none;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 25;
+      transition: background 0.3s;
+    }
+
+    .carousel-btn:hover {
+      background: rgba(255, 255, 255, 0.9);
+    }
+
+    .carousel-btn-prev {
+      left: 15px;
+    }
+
+    .carousel-btn-next {
+      right: 15px;
+    }
+
+    .carousel-dots {
+      position: absolute;
+      bottom: 15px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 8px;
+      z-index: 25;
+    }
+
+    .carousel-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.5);
+      border: none;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .carousel-dot.active {
+      background: rgba(255, 255, 255, 1);
+    }
+    
+    .carousel-text {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: white;
+      z-index: 20;
+    }
+    
+    .carousel-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.4);
+      z-index: 15;
+    }
+
+    /* Styles pour les cartes produits */
+    .product-card {
+      cursor: pointer;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .product-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+    }
+    /* Easter Egg - Image cliquable */
+.easter-egg-section {
+  text-align: center;
+  margin: 3rem auto;
+  max-width: 150px;
+}
+
+.easter-egg-image {
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s;
+  border-radius: 15px;
+  max-width: 100%;
+  height: auto;
+}
+
+.easter-egg-image:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+.easter-egg-text {
+  margin-top: 1rem;
+  font-style: italic;
+  color: #64748b;
+  font-size: 1.1rem;
+}
+
+/* Modal pour l'easter egg */
+.easter-egg-modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0,0,0,0.9);
+  z-index: 3000;
+  align-items: center;
+  justify-content: center;
+}
+
+.easter-egg-content {
+  background: white;
+  padding: 2rem;
+  border-radius: 20px;
+  text-align: center;
+  max-width: 500px;
+  margin: 2rem;
+  position: relative;
+  animation: easterEggAppear 0.5s ease-out;
+}
+
+@keyframes easterEggAppear {
+  from {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.easter-egg-close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: #666;
+}
+
+.easter-egg-close:hover {
+  color: #000;
+}
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-800">
+
+  <!-- 🎠 CARROUSEL HERO -->
+  <header class="relative">
+    <!-- Carrousel -->
+    <div class="carousel-container">
+      <div class="carousel-track">
+        <!-- Slide 1 : Accueil -->
+        <div class="carousel-slide">
+          <img src="photo_bannière.png" alt="Promo Zola Market" class="w-full h-full object-cover">
+          <div class="carousel-overlay"></div>
+          <div class="carousel-text">
+            <div class="max-w-2xl px-4">
+              <h1 class="text-4xl md:text-5xl font-extrabold mb-4">Bienvenue sur ZOLA_MARKET_ONLINE</h1>
+              <p class="text-lg md:text-xl">Téléviseurs,Laptops, Smartphones & Accessoires.</p>
+             <h6 class="text-lg md:text-x0">Service après vente sans effort - La qualité au prix d'usine - Livraison rapide au Cameroun 🇨🇲</h6>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Slide 2 : Powerbank -->
+        <div class="carousel-slide">
+          <img src="1.png" alt="Powerbank haute capacité" class="w-full h-full object-cover">
+          <div class="carousel-overlay"></div>
+          <div class="carousel-text">
+            <div class="max-w-2xl px-4">
+              <h2 class="text-3xl md:text-4xl font-bold mb-4">POWERBANKS HAUTE CAPACITÉ</h2>
+              <p class="text-lg">Charge rapide • Design compact • Jusqu'à 50% de réduction</p>
+              <a href="#catalogue" class="mt-6 inline-block bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-semibold">
+                Voir les offres
+              </a>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Slide 3 : Smartphone -->
+        <div class="carousel-slide">
+          <img src="2.png" alt="Smartphone Infinix" class="w-full h-full object-cover">
+          <div class="carousel-overlay"></div>
+          <div class="carousel-text">
+            <div class="max-w-2xl px-4">
+              <h2 class="text-3xl md:text-4xl font-bold mb-4">SMARTPHONES INNOVANTS</h2>
+              <p class="text-lg">TECNO, INFINIX, REDMI - Meilleur rapport qualité/prix</p>
+              <a href="#catalogue" class="mt-6 inline-block bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-lg font-semibold">
+                Découvrir
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 4 : Laptops HP et Dell -->
+        <div class="carousel-slide">
+          <img src="Laptop_Promo.png" alt="Laptops HP et Dell en promotion" class="w-full h-full object-cover">
+          <div class="carousel-overlay"></div>
+          <div class="carousel-text">
+            <div class="max-w-2xl px-4">
+              <h2 class="text-3xl md:text-4xl font-bold mb-4">LAPTOPS PROFESSIONNELS</h2>
+              <p class="text-lg">HP & Dell • Garantie 1 an • Configurations gaming & bureautique</p>
+              <a href="#catalogue" class="mt-6 inline-block bg-purple-600 hover:bg-purple-700 text-white px-6 py-3 rounded-lg font-semibold">
+                Voir les laptops
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 5 : Pack Complet -->
+        <div class="carousel-slide">
+          <img src="Pack_Complet.png" alt="Pack téléphone et écouteurs Bluetooth" class="w-full h-full object-cover">
+          <div class="carousel-overlay"></div>
+          <div class="carousel-text">
+            <div class="max-w-2xl px-4">
+              <h2 class="text-3xl md:text-4xl font-bold mb-4">PACKS COMPLETS</h2>
+              <p class="text-lg">Smartphone + Écouteurs + Chargeur • Économisez jusqu'à 30%</p>
+              <a href="#catalogue" class="mt-6 inline-block bg-orange-600 hover:bg-orange-700 text-white px-6 py-3 rounded-lg font-semibold">
+                Voir les packs
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 6 : Chargeur Laptop -->
+        <div class="carousel-slide">
+          <img src="Chargeur_Laptop.png" alt="Chargeur multi connecteurs pour technicien" class="w-full h-full object-cover">
+          <div class="carousel-overlay"></div>
+          <div class="carousel-text">
+            <div class="max-w-2xl px-4">
+              <h2 class="text-3xl md:text-4xl font-bold mb-4">CHARGEURS PROFESSIONNELS</h2>
+              <p class="text-lg">Tension réglable • Multi-connecteurs • Parfait pour techniciens</p>
+              <a href="#catalogue" class="mt-6 inline-block bg-red-600 hover:bg-red-700 text-white px-6 py-3 rounded-lg font-semibold">
+                Voir les chargeurs
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 7 : Câbles Adaptateurs -->
+        <div class="carousel-slide">
+          <img src="Cables_adaptateur.png" alt="Câbles USB et adaptateurs divers" class="w-full h-full object-cover">
+          <div class="carousel-overlay"></div>
+          <div class="carousel-text">
+            <div class="max-w-2xl px-4">
+              <h2 class="text-3xl md:text-4xl font-bold mb-4">CÂBLES & ADAPTATEURS</h2>
+              <p class="text-lg">USB-C, iPhone, Android • Qualité premium • Prix imbattables</p>
+              <a href="#catalogue" class="mt-6 inline-block bg-indigo-600 hover:bg-indigo-700 text-white px-6 py-3 rounded-lg font-semibold">
+                Explorer les câbles
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Boutons de navigation -->
+      <button class="carousel-btn carousel-btn-prev">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+        </svg>
+      </button>
+      <button class="carousel-btn carousel-btn-next">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+        </svg>
+      </button>
+      
+      <!-- Points indicateurs -->
+      <div class="carousel-dots">
+        <button class="carousel-dot active" data-slide="0"></button>
+        <button class="carousel-dot" data-slide="1"></button>
+        <button class="carousel-dot" data-slide="2"></button>
+        <button class="carousel-dot" data-slide="3"></button>
+        <button class="carousel-dot" data-slide="4"></button>
+        <button class="carousel-dot" data-slide="5"></button>
+        <button class="carousel-dot" data-slide="6"></button>
+      </div>
+    </div>
+
+    <!-- Barre de navigation -->
+    <div class="absolute top-0 left-0 right-0 z-30">
+      <div class="max-w-6xl mx-auto flex items-center justify-between p-4">
+        <div class="flex items-center space-x-3">
+          <img src="https://img.icons8.com/color/96/online-store.png" alt="Logo" class="h-12 w-12">
+          <span class="font-extrabold text-2xl text-white">ZOLA_MARKET_ONLINE</span>
+        </div>
+        <nav class="hidden md:flex space-x-6 font-medium">
+          <a href="#home" class="text-white hover:text-yellow-300">Accueil</a>
+          <a href="#catalogue" class="text-white hover:text-yellow-300">Produits</a>
+          <a href="#contact" class="text-white hover:text-yellow-300">Contact</a>
+        </nav>
+        <div class="flex items-center space-x-4">
+          <!-- Icône du panier -->
+          <div id="cartIcon" class="relative cursor-pointer">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+            </svg>
+            <span id="cartCount" class="absolute -top-2 -right-2 bg-red-500 text-white text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center">0</span>
+          </div>
+          <!-- Bouton WhatsApp -->
+          <a href="https://wa.me/237696507076" target="_blank" class="bg-green-500 hover:bg-green-600 px-4 py-2 rounded-lg shadow text-white">📲 WhatsApp</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- 🔍 BARRE DE RECHERCHE -->
+  <section class="max-w-6xl mx-auto px-6 mt-6">
+    <input id="search" type="text" placeholder="Rechercher un produit..." class="w-full p-3 rounded-xl border border-gray-300 shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500" />
+  </section>
+
+  <main class="max-w-6xl mx-auto p-6">
+    <h2 class="text-2xl font-bold text-blue-600 mb-6">Nos produits en vedette</h2>
+    <div id="catalogue" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+  </main>
+<!-- 🎉 EASTER EGG - Image cliquable -->
+<section class="easter-egg-section">
+  <img src="easter_egg.png" 
+       alt="Image mystère" 
+       class="easter-egg-image" 
+       id="easterEggImage">
+       
+  <p class="easter-egg-text">Célebrez avec nous les prix les plus bas. </p>
+</section>
+
+<!-- Modal Easter Egg -->
+<div id="easterEggModal" class="easter-egg-modal">
+  <div class="easter-egg-content">
+    <button id="closeEasterEgg" class="easter-egg-close">&times;</button>
+    <div class="mb-4">
+      <img src="easter_egg.png" alt="Image agrandie" class="w-full max-w-xs mx-auto rounded-lg mb-4">
+    </div>
+    <h2 class="text-2xl font-bold text-green-600 mb-4">🎉 Bravoo!!!</h2>
+    <p class="text-lg text-gray-700">Vous avez découvert le premier site de vente directement lié à l'usine, Nos prix sont bas car nous évitons les intermediaires, notre fournisseur est l'usine.</p>
+    <div class="mt-6">
+      <button id="closeEasterEggBtn" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg">
+        Fermer
+      </button>
+    </div>
+  </div>
+</div>
+
+  <!-- 📩 SECTION CONTACT -->
+  <section id="contact" class="max-w-6xl mx-auto p-6 bg-white rounded-2xl shadow mt-12">
+    <h2 class="text-2xl font-bold text-blue-600 mb-4">Contactez-nous</h2>
+    <form id="contactForm" action="https://formspree.io/f/xblknbgz" method="POST" class="space-y-4">
+      <input type="text" name="name" id="name" placeholder="Votre nom" required class="w-full p-3 border rounded-lg" />
+      <input type="email" name="email" id="email" placeholder="Votre email" required class="w-full p-3 border rounded-lg" />
+      <textarea name="message" id="message" placeholder="Votre message" required class="w-full p-3 border rounded-lg"></textarea>
+      <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg">Envoyer</button>
+    </form>
+    <p class="text-sm mt-4">Ou contactez-nous directement sur WhatsApp 👉 <a href="https://wa.me/237696507076" class="text-green-500 underline">237 696 507 076</a></p>
+  </section>
+
+  <footer class="bg-slate-800 text-slate-200 text-center p-6 mt-12">
+    <p class="text-sm">© 2025 ZOLA_MARKET_ONLINE – Tous droits réservés</p>
+    <p class="text-sm mt-2">Livraison à Yaoundé, Douala, Bafoussam</p>
+    <p class="text-sm mt-2">📩 Email : <a href="mailto:contact@zolamarket.com" class="underline">contact@zolamarket.com</a></p>
+  </footer>
+
+  <!-- Modal du Panier -->
+  <div id="cartOverlay" class="cart-overlay"></div>
+  <div id="cartModal" class="cart-modal">
+    <div class="p-4">
+      <div class="flex justify-between items-center mb-4">
+        <h3 class="text-lg font-bold">Votre Panier</h3>
+        <button id="closeCart" class="text-gray-500 hover:text-gray-700">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+      <div id="cartItems" class="space-y-4">
+        <!-- Les articles du panier seront insérés ici par JavaScript -->
+      </div>
+      <div class="border-t mt-4 pt-4">
+        <p class="font-bold">Total: <span id="cartTotal">0</span> FCFA</p>
+        <button id="clearCart" class="text-sm text-red-500 hover:text-red-700 mt-2">Vider le panier</button>
+        <a id="checkoutWhatsApp" href="#" class="mt-4 inline-block w-full bg-green-500 hover:bg-green-600 text-white text-center px-4 py-2 rounded-lg">Commander sur WhatsApp</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Détail Produit -->
+  <div id="productDetailModal" class="product-detail-modal">
+    <div class="product-detail-content mx-4">
+      <div class="relative p-6">
+        <!-- Bouton fermer -->
+        <button id="closeProductDetail" class="absolute top-4 right-4 text-gray-500 hover:text-gray-700 z-10">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+
+        <div id="productDetailContent">
+          <!-- Le contenu détaillé du produit sera inséré ici -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // ==================== CARROUSEL ====================
+    const carouselTrack = document.querySelector('.carousel-track');
+    const carouselSlides = document.querySelectorAll('.carousel-slide');
+    const prevBtn = document.querySelector('.carousel-btn-prev');
+    const nextBtn = document.querySelector('.carousel-btn-next');
+    const dots = document.querySelectorAll('.carousel-dot');
+
+    let currentIndex = 0;
+    let autoPlayInterval;
+
+    function updateCarousel() {
+        carouselTrack.style.transform = `translateX(-${currentIndex * 100}%)`;
+        
+        // Mettre à jour les points actifs
+        dots.forEach((dot, index) => {
+            dot.classList.toggle('active', index === currentIndex);
+        });
+    }
+
+    function nextSlide() {
+        currentIndex = (currentIndex + 1) % carouselSlides.length;
+        updateCarousel();
+    }
+
+    function prevSlide() {
+        currentIndex = (currentIndex - 1 + carouselSlides.length) % carouselSlides.length;
+        updateCarousel();
+    }
+
+    function goToSlide(index) {
+        currentIndex = index;
+        updateCarousel();
+    }
+
+    function startAutoPlay() {
+        autoPlayInterval = setInterval(nextSlide, 5000); // Change toutes les 5 secondes
+    }
+
+    function stopAutoPlay() {
+        clearInterval(autoPlayInterval);
+    }
+
+    // Événements
+    nextBtn.addEventListener('click', () => {
+        stopAutoPlay();
+        nextSlide();
+        startAutoPlay();
+    });
+
+    prevBtn.addEventListener('click', () => {
+        stopAutoPlay();
+        prevSlide();
+        startAutoPlay();
+    });
+
+    dots.forEach((dot, index) => {
+        dot.addEventListener('click', () => {
+            stopAutoPlay();
+            goToSlide(index);
+            startAutoPlay();
+        });
+    });
+
+    // Démarrer le carrousel automatique
+    startAutoPlay();
+
+    // Pause au survol
+    document.querySelector('.carousel-container').addEventListener('mouseenter', stopAutoPlay);
+    document.querySelector('.carousel-container').addEventListener('mouseleave', startAutoPlay);
+
+    // ==================== FIN CARROUSEL ====================
+
+    const BUSINESS_NAME = "ZOLA_MARKET_ONLINE";
+    const WHATSAPP_NUMBER = "237696507076";
+    const DELIVERY_CITIES = ["Yaoundé", "Douala", "Bafoussam"];
+    const CURRENCY = "FCFA";
+
+    const PRODUCTS = [
+      {
+        id: "p1",
+        name: "Laptop HP ProBook 440 G7 14' intel Core i5 10210U 256Go SSD RAM 8GB",
+        category: "Pièces détachées",
+        price: 140000,
+        oldPrice: 350000,
+        image: "HPProBook.png",
+        bullets: ["Compatible toutes marques", "Qualité d'origine", "Prix abordable"],
+        badges: ["Best-seller"],
+        description: "Ce laptop HP ProBook 440 G7 est parfait pour les professionnels. Avec son processeur Intel Core i5 de 10ème génération, 8 Go de RAM et un SSD de 256 Go, il offre des performances exceptionnelles pour le travail quotidien.",
+        specs: {
+          "Processeur": "Intel Core i5-10210U",
+          "RAM": "8 Go DDR4",
+          "Stockage": "256 Go SSD",
+          "Écran": "14 pouces HD",
+          "Connectivité": "WiFi, Bluetooth, USB 3.0",
+          "Garantie": "12 mois"
+        }
+      },
+      {
+        id: "p2",
+        name: "Tecno_Phantom_V_Flip55 RAM 8Go, DD 256",
+        category: "Téléphones",
+        price: 125000,
+        oldPrice: 200000,
+        image: "techno_phantom.png",
+        bullets: ["Très bon état", "Performants et rapides", "Garantie satisfaction"],
+        badges: ["Qualité Pro"],
+        description: "Le Tecno Phantom V Flip55 est un smartphone élégant et performant avec 8 Go de RAM et 256 Go de stockage. Son design raffiné et ses fonctionnalités avancées en font un excellent choix.",
+        specs: {
+          "RAM": "8 Go",
+          "Stockage": "256 Go",
+          "Écran": "6.9 pouces AMOLED pliable",
+          "Appareil photo": "64 MP principal + 13 MP ultra-large",
+          "Batterie": "4000 mAh",
+          "OS": "Android 13"
+        }
+      },
+      {
+        id: "p3",
+        name: "Écouteur Neobuds Pro True Wireless Stereo",
+        category: "Accessoires",
+        price: 5000,
+        oldPrice: 15000,
+        image: "ecouteur_Neobuds.png",
+        bullets: ["Connexion stable", "Design ergonomique", "Batterie longue durée"],
+        badges: ["Nouveau"],
+        description: "Les écouteurs Neobuds Pro True Wireless offrent une qualité sonore exceptionnelle avec une connexion stable et une autonomie prolongée. Leur design ergonomique assure un confort d'utilisation optimal.",
+        specs: {
+          "Connexion": "Bluetooth 5.2",
+          "Autonomie": "8h + 32h avec boîtier",
+          "Charge": "USB-C rapide",
+          "Résistance": "IPX5",
+          "Drivers": "10mm dynamiques",
+          "Couleurs": "Noir, Blanc"
+        }
+      },
+      {
+        id: "p4",
+        name: "Package Complet : Smartphone + Écouteurs + Chargeur",
+        category: "Téléphones",
+        price: 89999,
+        oldPrice: 200000,
+        image: "Pack_Complet.png",
+        bullets: ["Rapide et fiable", "Différentes capacités", "Idéal sauvegarde"],
+        badges: ["Top vente"],
+        description: "Ce pack complet comprend un smartphone performant, des écouteurs de qualité et un chargeur rapide. Une solution tout-en-un pour répondre à tous vos besoins mobiles.",
+        specs: {
+          "Smartphone": "Android 12, 4 Go RAM, 128 Go",
+          "Écouteurs": "Bluetooth 5.0, autonomie 6h",
+          "Chargeur": "20W charge rapide",
+          "Garantie": "12 mois sur tous les éléments",
+          "Livraison": "Gratuite dans les 3 villes",
+          "Support": "Service client 24/7"
+        }
+      },
+      {
+        id: "p5",
+        name: "Xiaomi Redmi 9T/6,53pouces/128Go/4Go RAM/48MP+8MP+2MP+2MP/8MP/6000 mAh/12 Mois",
+        category: "Téléphones",
+        price: 129000,
+        oldPrice: 193000,
+        image: "4.png",
+        bullets: ["Livraison Rapide après 2H", "Paiement à la livraison", "Retour gratuit sous 3jours"],
+        badges: ["Recommandé"],
+        description: "Le Xiaomi Redmi 9T est un smartphone puissant avec un écran de 6,53 pouces, 128 Go de stockage, 4 Go de RAM et une batterie de 6000 mAh. Son appareil photo de 48 MP capture des images exceptionnelles.",
+        specs: {
+          "Écran": "6,53 pouces FHD+",
+          "RAM": "4 Go LPDDR4X",
+          "Stockage": "128 Go extensible",
+          "Appareil photo": "48+8+2+2 MP arrière, 8 MP avant",
+          "Batterie": "6000 mAh, charge 18W",
+          "Processeur": "Snapdragon 662"
+        }
+      },
+      {
+        id: "p6",
+        name: "INFINIX Hot 40i/256GB ROM/8+8GB RAM/2SIM/50+2MP/5000mAh/Garantie 12mois",
+        category: "Téléphones",
+        price: 79000,
+        oldPrice: 150500,
+        image: "2.png",
+        bullets: ["Livraison Rapide après 2H", "Paiement à la livraison", "Retour gratuit sous 3jours"],
+        badges: ["Top vente"],
+        description: "L'INFINIX Hot 40i offre des performances exceptionnelles avec 256 Go de stockage, 8+8 Go de RAM, un appareil photo de 50+2 MP et une batterie de 5000 mAh. Garantie 12 mois incluse.",
+        specs: {
+          "RAM": "8+8 Go (extensible)",
+          "Stockage": "256 Go",
+          "Écran": "6.7 pouces HD+",
+          "Appareil photo": "50+2 MP arrière, 8 MP avant",
+          "Batterie": "5000 mAh",
+          "OS": "Android 13, XOS 13"
+        }
+      },
+      {
+        id: "p7",
+        name: "Casque Bluetooth Sans Fil Pliable",
+        category: "Téléphones",
+        price: 6000,
+        oldPrice: 15000,
+        image: "8.png",
+        bullets: ["Livraison Rapide après 2H", "Paiement à la livraison", "Retour gratuit sous 3jours"],
+        badges: ["Recommandé"],
+        description: "Ce casque Bluetooth sans fil pliable offre un son de qualité supérieure avec une connectivité stable. Son design pliable le rend facile à transporter partout avec vous.",
+        specs: {
+          "Connexion": "Bluetooth 5.0",
+          "Autonomie": "12 heures d'écoute",
+          "Charge": "2 heures via USB-C",
+          "Portée": "10 mètres",
+          "Poids": "180g ultra-léger",
+          "Contrôles": "Tactiles intégrés"
+        }
+      },
+      {
+        id: "p8",
+        name: "Chargeur Laptop/Multi têtes/Tension Réglable",
+        category: "Accessoires",
+        price: 19000,
+        oldPrice: 23000,
+        image: "Chargeur_Laptop.png",
+        bullets: ["Livraison Rapide après 2H", "Paiement à la livraison", "Retour gratuit sous 3jours"],
+        badges: ["Recommandé"],
+        description: "Ce chargeur universel pour laptop avec multi-têtes et tension réglable est compatible avec la plupart des marques. Parfait pour les techniciens et les utilisateurs exigeants.",
+        specs: {
+          "Tension": "15V-24V réglable",
+          "Puissance": "90W maximum",
+          "Connecteurs": "8 têtes différentes incluses",
+          "Compatibilité": "HP, Dell, Lenovo, Acer, Asus",
+          "Protection": "Surtension, court-circuit",
+          "Câble": "1.5m de longueur"
+        }
+      },
+      {
+        id: "p9",
+        name: "Câble USB/type C/Androïde/Iphone",
+        category: "Accessoires",
+        price: 1500,
+        oldPrice: 2000,
+        image: "Cables_adaptateur.png",
+        bullets: ["Garantie fiabilité", "Rapport qualité/prix", "Retour gratuit sous 3jours"],
+        badges: ["Recommandé"],
+        description: "Ce câble multi-connecteurs est compatible avec USB, Type C, Android et iPhone. De haute qualité, il assure une charge rapide et une transmission de données fiable.",
+        specs: {
+          "Connecteurs": "USB-A, USB-C, Lightning, Micro-USB",
+          "Longueur": "1.2 mètres",
+          "Matériau": "Nylon tressé renforcé",
+          "Charge": "3A charge rapide",
+          "Données": "480 Mbps de transfert",
+          "Garantie": "24 mois"
+        }
+      },
+       {
+        id: "p10",
+        name: "Smart TV Hisense 43A4K/43 pouces/Full HD",
+        category: "Téléviseurs",
+        price: 144900,
+        oldPrice: 195000,
+        image: "Téléviseur_Hisense2.png",
+        bullets: ["Garantie fiabilité", "Rapport qualité/prix", "Retour gratuit sous 7jours"],
+        badges: ["Recommandé"],
+        description: "Numérique LED Full HD/Tension: 220 - 240 V / 50hz/Entrée Ethernet / LAN: Oui",
+        specs: {
+          "Connecteurs": "USB-A, USB-C, Lightning, Micro-USB",
+          "Dimension": "43 Pouces",
+          "Résolution": "1080 x 1920 pixels",
+          "Système de rétroéclairage:": "LED directe",
+          "Autres Connecteur:": " 2 x HDMI, 2 x USB 2.0",
+          "Garantie": "24 mois"
+        }
+      },
+       {
+        id: "p11",
+        name: "Téléviseur OLED 4K UHD LG - 83 pouces",
+        category: "Téléviseur",
+        price: 520000,
+        oldPrice: 650000,
+        image: "Téléviseur_LG.png",
+        bullets: ["Garantie fiabilité", "Rapport qualité/prix", "Retour gratuit sous 7jours"],
+        badges: ["Recommandé"],
+        description: "propulsé par le processeur 4K Alpha 9 Gen 4. image 4K UHD avec Dolby Vision IQ et HDR10 Pro, son puissant de 40 Watts avec Dolby Atmos et AI Sound Pro 5.1.2 et performances gaming élevées avec 4 connecteurs HDMI 2.1 et dalle 100 Hz.",
+        specs: {
+          "Modèle": "OLED83C1PVA/Couleur Noir",
+          "Taille": "83 pouces (210 cm)",
+          "Résolution": "4K Ultra HD 3840 x 2160 pixels",
+          "Technologies": "Processeur α9 Gen 4 AI, Ultra Luminance Pro, Cinema HDR (Dolby Vision IQ, HLG, HDR10 Pro), Mode réalisateur, True Color Accuracy Pro, AI Picture Pro/Brightness,",
+          "Gaming/Reseau": "HDMI 2.1, HGiG, 4K/120fps, compatibilité G-Sync/FreeSync Premium, 1 ms,Game Optimizer/Wi-Fi, Bluetooth 5.0, AirPlay 2, Smart TV webOS 6.0, 360 VR, Miracast, Ethernet",
+          "Garantie": "24 mois"
+        }
+      },
+      {
+        id: "p12",
+        name: "Tecno Camon 40 Pro Incurvé/256Go/8+8Go RAM Extensible/6,78 Pouces/2Sim/50MP+8MP+50MP/5200mAh/Garantie 24 mois",
+        category: "Téléphones",
+        price: 155000,
+        oldPrice: 208000,
+        image: "5s.png",
+        bullets: ["Livraison Rapide après 2H", "Paiement à la livraison", "Retour gratuit sous 3jours"],
+        badges: ["Recommandé"],
+        description: "Le Tecno Camon 40 Pro Incurvé est un smartphone haut de gamme avec un écran de 6,78 pouces, 256 Go de stockage, 8+8 Go de RAM extensible, un triple appareil photo et une batterie de 5200 mAh. Garantie 24 mois.",
+        specs: {
+          "Écran": "6.78 pouces AMOLED incurvé",
+          "RAM": "8+8 Go extensible",
+          "Stockage": "256 Go",
+          "Appareil photo": "50+8+50 MP arrière, 32 MP avant",
+          "Batterie": "5200 mAh, charge 70W",
+          "OS": "Android 14, HiOS 14"
+        }
+      }
+    ];
+
+    const container = document.getElementById("catalogue");
+    const searchInput = document.getElementById("search");
+    const cartIcon = document.getElementById("cartIcon");
+    const cartModal = document.getElementById("cartModal");
+    const cartOverlay = document.getElementById("cartOverlay");
+    const closeCart = document.getElementById("closeCart");
+    const cartItems = document.getElementById("cartItems");
+    const cartCount = document.getElementById("cartCount");
+    const cartTotal = document.getElementById("cartTotal");
+    const clearCartBtn = document.getElementById("clearCart");
+    const checkoutBtn = document.getElementById("checkoutWhatsApp");
+
+    // Modal détail produit
+    const productDetailModal = document.getElementById("productDetailModal");
+    const productDetailContent = document.getElementById("productDetailContent");
+    const closeProductDetail = document.getElementById("closeProductDetail");
+
+// ==================== EASTER EGG ====================
+const easterEggImage = document.getElementById('easterEggImage');
+const easterEggModal = document.getElementById('easterEggModal');
+const closeEasterEgg = document.getElementById('closeEasterEgg');
+const closeEasterEggBtn = document.getElementById('closeEasterEggBtn');
+
+function openEasterEgg() {
+  easterEggModal.style.display = 'flex';
+  document.body.style.overflow = 'hidden';
+}
+
+function closeEasterEggModal() {
+  easterEggModal.style.display = 'none';
+  document.body.style.overflow = 'auto';
+}
+
+// Événements pour l'easter egg
+easterEggImage.addEventListener('click', openEasterEgg);
+closeEasterEgg.addEventListener('click', closeEasterEggModal);
+closeEasterEggBtn.addEventListener('click', closeEasterEggModal);
+
+// Fermer en cliquant à l'extérieur
+easterEggModal.addEventListener('click', (e) => {
+  if (e.target === easterEggModal) {
+    closeEasterEggModal();
+  }
+});
+
+// Ajouter la touche Échap pour fermer l'easter egg
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') {
+    closeEasterEggModal();
+  }
+});
+// ==================== FIN EASTER EGG ====================
+
+    // Initialiser le panier
+    let cart = [];
+
+    // Fonctions pour le panier
+    function saveCart() {
+        // Note: localStorage n'est pas disponible dans l'environnement Claude
+        // Nous utilisons seulement la variable en mémoire
+        updateCartUI();
+    }
+
+    function addToCart(productId) {
+        const product = PRODUCTS.find(p => p.id === productId);
+        const existingItem = cart.find(item => item.id === productId);
+
+        if (existingItem) {
+            existingItem.quantity += 1;
+        } else {
+            cart.push({ ...product, quantity: 1 });
+        }
+        saveCart();
+    }
+
+    function removeFromCart(productId) {
+        cart = cart.filter(item => item.id !== productId);
+        saveCart();
+    }
+
+    function updateCartUI() {
+        // Mettre à jour le compteur
+        cartCount.textContent = cart.reduce((total, item) => total + item.quantity, 0);
+
+        // Mettre à jour les articles
+        cartItems.innerHTML = '';
+        if (cart.length === 0) {
+            cartItems.innerHTML = '<p class="text-gray-500 text-center">Votre panier est vide.</p>';
+            checkoutBtn.classList.add('opacity-50', 'cursor-not-allowed');
+            checkoutBtn.removeAttribute('href');
+        } else {
+            checkoutBtn.classList.remove('opacity-50', 'cursor-not-allowed');
+            cart.forEach(item => {
+                const cartItemEl = document.createElement('div');
+                cartItemEl.className = 'flex justify-between items-start border-b pb-2';
+                cartItemEl.innerHTML = `
+                    <div class="flex-1">
+                        <h4 class="font-medium text-sm">${item.name}</h4>
+                        <p class="text-sm text-gray-600">${item.price.toLocaleString()} FCFA x ${item.quantity}</p>
+                    </div>
+                    <div class="flex items-center space-x-2">
+                        <p class="font-bold text-sm">${(item.price * item.quantity).toLocaleString()} FCFA</p>
+                        <button class="remove-from-cart text-red-500 hover:text-red-700" data-id="${item.id}">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                            </svg>
+                        </button>
+                    </div>
+                `;
+                cartItems.appendChild(cartItemEl);
+            });
+        }
+
+        // Mettre à jour le total
+        const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+        cartTotal.textContent = total.toLocaleString();
+
+        // Mettre à jour le lien WhatsApp
+        if (cart.length > 0) {
+            const message = generateWhatsAppMessage();
+            checkoutBtn.setAttribute('href', message);
+        }
+    }
+
+    function generateWhatsAppMessage() {
+        let message = `Bonjour ${BUSINESS_NAME} !%0aJe souhaite commander les articles suivants :%0a%0a`;
+        cart.forEach(item => {
+            message += `- ${item.name} (x${item.quantity}) : ${(item.price * item.quantity).toLocaleString()} FCFA%0a`;
+        });
+        message += `%0a*Total : ${cart.reduce((sum, item) => sum + (item.price * item.quantity), 0).toLocaleString()} FCFA*%0a%0a`;
+        message += `Livraison à : [Ville]`; // L'utilisateur devra compléter
+
+        return `https://wa.me/${WHATSAPP_NUMBER}?text=${message}`;
+    }
+
+    // Fonction pour ouvrir le modal de détail du produit
+    function openProductDetail(productId) {
+        const product = PRODUCTS.find(p => p.id === productId);
+        if (!product) return;
+
+        // Calculer le pourcentage de réduction
+        const discount = Math.round(((product.oldPrice - product.price) / product.oldPrice) * 100);
+
+        productDetailContent.innerHTML = `
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <!-- Image du produit -->
+                <div class="relative">
+                    <img src="${product.image}" alt="${product.name}" class="w-full h-96 object-cover rounded-lg">
+                    ${product.badges.map(badge => `
+                        <span class="absolute top-4 left-4 bg-red-500 text-white px-2 py-1 rounded-full text-xs font-bold">${badge}</span>
+                    `).join('')}
+                </div>
+
+                <!-- Détails du produit -->
+                <div class="space-y-6">
+                    <div>
+                        <span class="text-sm text-gray-500 uppercase tracking-wide">${product.category}</span>
+                        <h1 class="text-2xl font-bold text-gray-900 mt-2">${product.name}</h1>
+                    </div>
+
+                    <!-- Prix -->
+                    <div class="flex items-center space-x-4">
+                        <span class="text-3xl font-bold text-blue-600">${product.price.toLocaleString()} FCFA</span>
+                        ${product.oldPrice ? `
+                            <span class="text-lg text-gray-500 line-through">${product.oldPrice.toLocaleString()} FCFA</span>
+                            <span class="bg-red-100 text-red-800 px-2 py-1 rounded text-sm font-semibold">-${discount}%</span>
+                        ` : ''}
+                    </div>
+
+                    <!-- Description -->
+                    <div>
+                        <h3 class="text-lg font-semibold mb-2">Description</h3>
+                        <p class="text-gray-600 leading-relaxed">${product.description}</p>
+                    </div>
+
+                    <!-- Caractéristiques -->
+                    <div>
+                        <h3 class="text-lg font-semibold mb-3">Caractéristiques techniques</h3>
+                        <div class="grid grid-cols-1 gap-2">
+                            ${Object.entries(product.specs || {}).map(([key, value]) => `
+                                <div class="flex justify-between py-2 border-b border-gray-100">
+                                    <span class="font-medium text-gray-700">${key}:</span>
+                                    <span class="text-gray-600">${value}</span>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+
+                    <!-- Points forts -->
+                    <div>
+                        <h3 class="text-lg font-semibold mb-2">Points forts</h3>
+                        <ul class="space-y-1">
+                            ${product.bullets.map(bullet => `
+                                <li class="flex items-start">
+                                    <svg class="h-5 w-5 text-green-500 mr-2 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                    </svg>
+                                    <span class="text-gray-600">${bullet}</span>
+                                </li>
+                            `).join('')}
+                        </ul>
+                    </div>
+
+                    <!-- Boutons d'action -->
+                    <div class="flex flex-col sm:flex-row gap-4 pt-6">
+                        <button onclick="addToCart('${product.id}')" class="flex-1 bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-semibold flex items-center justify-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+                            </svg>
+                            Ajouter au panier
+                        </button>
+                        <a href="https://wa.me/${WHATSAPP_NUMBER}?text=Bonjour, je suis intéressé(e) par ce produit: ${encodeURIComponent(product.name)} - ${product.price.toLocaleString()} FCFA" 
+                           target="_blank" 
+                           class="flex-1 bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-lg font-semibold flex items-center justify-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.131-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
+                            </svg>
+                            Commander sur WhatsApp
+                        </a>
+                    </div>
+                </div>
+            </div>
+        `;
+
+        productDetailModal.style.display = 'block';
+        document.body.style.overflow = 'hidden';
+    }
+
+    // Fonction pour fermer le modal de détail
+    function closeProductDetailModal() {
+        productDetailModal.style.display = 'none';
+        document.body.style.overflow = 'auto';
+    }
+
+    // Fonction de rendu des produits
+    function renderProducts(filter = "") {
+        container.innerHTML = "";
+        PRODUCTS.filter(p => p.name.toLowerCase().includes(filter.toLowerCase())).forEach(p => {
+            const discount = p.oldPrice ? Math.round(((p.oldPrice - p.price) / p.oldPrice) * 100) : 0;
+            
+            const card = document.createElement("div");
+            card.className = "product-card bg-white shadow-md rounded-2xl overflow-hidden hover:shadow-xl transition";
+            card.innerHTML = `
+                <div onclick="openProductDetail('${p.id}')" class="cursor-pointer">
+                    <div class="relative">
+                        <img src="${p.image}" alt="${p.name}" class="w-full h-48 object-cover">
+                        ${p.badges.map(badge => `
+                            <span class="absolute top-2 left-2 bg-red-500 text-white px-2 py-1 rounded-full text-xs font-bold">${badge}</span>
+                        `).join('')}
+                        ${discount > 0 ? `
+                            <span class="absolute top-2 right-2 bg-green-500 text-white px-2 py-1 rounded-full text-xs font-bold">-${discount}%</span>
+                        ` : ''}
+                    </div>
+                    <div class="p-4">
+                        <span class="text-sm text-gray-500">${p.category}</span>
+                        <h3 class="font-bold text-lg mb-2 line-clamp-2">${p.name}</h3>
+                        <div class="flex items-center justify-between mb-3">
+                            <div>
+                                <span class="text-xl font-bold text-blue-600">${p.price.toLocaleString()} FCFA</span>
+                                ${p.oldPrice ? `<span class="text-sm text-gray-500 line-through block">${p.oldPrice.toLocaleString()} FCFA</span>` : ''}
+                            </div>
+                        </div>
+                        <ul class="text-sm text-gray-600 mb-4 space-y-1">
+                            ${p.bullets.slice(0, 2).map(bullet => `
+                                <li class="flex items-start">
+                                    <svg class="h-4 w-4 text-green-500 mr-1 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                    </svg>
+                                    ${bullet}
+                                </li>
+                            `).join('')}
+                        </ul>
+                    </div>
+                </div>
+                <div class="p-4 pt-0 flex gap-2">
+                    <button onclick="addToCart('${p.id}')" class="flex-1 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg text-sm font-medium">
+                        Ajouter au panier
+                    </button>
+                    <a href="https://wa.me/${WHATSAPP_NUMBER}?text=Bonjour, je suis intéressé(e) par: ${encodeURIComponent(p.name)}" 
+                       target="_blank" 
+                       class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg text-sm font-medium">
+                        📲 WhatsApp
+                    </a>
+                </div>
+            `;
+            container.appendChild(card);
+        });
+    }
+
+    // Événements du panier
+    cartIcon.addEventListener('click', () => {
+        cartModal.style.display = 'block';
+        cartOverlay.style.display = 'block';
+    });
+
+    closeCart.addEventListener('click', () => {
+        cartModal.style.display = 'none';
+        cartOverlay.style.display = 'none';
+    });
+
+    cartOverlay.addEventListener('click', () => {
+        cartModal.style.display = 'none';
+        cartOverlay.style.display = 'none';
+    });
+
+    clearCartBtn.addEventListener('click', () => {
+        cart = [];
+        saveCart();
+    });
+
+    // Événement pour supprimer des articles du panier
+    document.addEventListener('click', (e) => {
+        if (e.target.closest('.remove-from-cart')) {
+            const productId = e.target.closest('.remove-from-cart').dataset.id;
+            removeFromCart(productId);
+        }
+    });
+
+    // Événements du modal détail produit
+    closeProductDetail.addEventListener('click', closeProductDetailModal);
+
+    productDetailModal.addEventListener('click', (e) => {
+        if (e.target === productDetailModal) {
+            closeProductDetailModal();
+        }
+    });
+
+    // Événement de recherche
+    searchInput.addEventListener('input', (e) => {
+        renderProducts(e.target.value);
+    });
+
+    // Échapper pour fermer les modals
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+            cartModal.style.display = 'none';
+            cartOverlay.style.display = 'none';
+            closeProductDetailModal();
+        }
+    });
+
+    // Initialisation
+    renderProducts();
+    updateCartUI();
+  </script>
+
+</body>
+</html>
