@@ -1,0 +1,110 @@
+Explique moi clairement étape par étape comment importer mon site sur GitHub, j'ai déjà un compte GitHub et j'ai déjà crée un repository dans mon compte
+Guide étape par étape pour importer votre site sur GitHub
+Je vais vous expliquer clairement comment importer votre site sur GitHub, même si vous êtes débutant.
+
+Prérequis
+Avoir un compte GitHub (déjà fait)
+
+Avoir créé un repository (déjà fait)
+
+Avoir Git installé sur votre ordinateur (sinon, je vais vous expliquer comment faire)
+
+Étape 1: Installer Git sur votre ordinateur
+Téléchargez Git:
+
+Allez sur git-scm.com
+
+Téléchargez la version pour votre système d'exploitation (Windows, Mac, Linux)
+
+Installez-le en suivant les instructions par défaut
+
+Vérifiez l'installation:
+
+Ouvrez votre terminal (Command Prompt sur Windows, Terminal sur Mac)
+
+Tapez: git --version
+
+Si vous voyez une version (ex: git version 2.37.1), c'est que Git est installé
+
+Étape 2: Préparer vos fichiers
+Créez un dossier sur votre ordinateur pour votre projet (ex: zola-market)
+
+Copiez tous vos fichiers dans ce dossier (votre index.html, vos images, etc.)
+
+Étape 3: Configurer Git
+Ouvrez votre terminal et naviguez vers votre dossier:
+
+bash
+cd chemin/vers/votre/dossier/zola-market
+Initialisez Git dans votre dossier:
+
+bash
+git init
+Configurez votre identité:
+
+bash
+git config user.name "VotreNomGitHub"
+git config user.email "votre@email.com"
+Étape 4: Lier votre dossier local à GitHub
+Allez sur votre repository GitHub que vous avez créé
+
+Copiez l'URL de votre repository (bouton vert "Code")
+
+Dans votre terminal, liez votre dossier local à GitHub:
+
+bash
+git remote add origin https://github.com/VotreNomGitHub/NomDeVotreRepository.git
+Étape 5: Ajouter vos fichiers et faire un commit
+Ajoutez tous vos fichiers à Git:
+
+bash
+git add .
+Créez un commit (un "sauvegarde" de vos fichiers):
+
+bash
+git commit -m "Première version de mon site ZOLA MARKET"
+Étape 6: Envoyer vos fichiers sur GitHub
+Poussez vos fichiers vers GitHub:
+
+bash
+git push -u origin main
+Si cette commande ne fonctionne pas, essayez:
+
+bash
+git push -u origin master
+Étape 7: Configurer GitHub Pages
+Allez sur votre repository sur GitHub.com
+
+Cliquez sur l'onglet "Settings" (en haut à droite)
+
+Dans le menu de gauche, cliquez sur "Pages"
+
+Dans la section "Branch", sélectionnez main ou master
+
+Cliquez sur "Save"
+
+Étape 8: Accéder à votre site en ligne
+Attendez quelques minutes (parfois jusqu'à 10 minutes)
+
+Retournez dans les Settings > Pages
+
+Vous verrez l'URL de votre site (ex: https://votrenomgithub.github.io/nomdurepository/)
+
+Résolution de problèmes courants
+Si vous avez une erreur d'authentification: GitHub peut vous demander de vous connecter
+
+Si votre site ne s'affiche pas: Vérifiez que votre fichier s'appelle bien index.html
+
+Si les images ne s'affichent pas: Vérifiez que les chemins vers les images sont corrects
+
+Mettre à jour votre site plus tard
+Quand vous modifiez votre site, répétez ces commandes:
+
+bash
+git add .
+git commit -m "Description des modifications"
+git push
+Félicitations!
+Votre site est maintenant en ligne sur GitHub Pages. Vous pouvez partager le lien avec vos clients.
+
+Si vous avez des difficultés à une étape précise, n'hésitez pas à me dire à quelle étape vous bloquez, je vous guiderai avec des instructions plus détaillées.

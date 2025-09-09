@@ -70,7 +70,7 @@
     .carousel-container {
       position: relative;
       width: 100%;
-      height: 400px;
+      height: 200px;
       overflow: hidden;
     }
 
@@ -168,7 +168,16 @@
       background: rgba(0, 0, 0, 0.4);
       z-index: 15;
     }
-
+.banner-text {
+  position: absolute;
+  bottom: 10px; /* Ajustez cette valeur selon vos besoins */
+  left: 0;
+  right: 0;
+  text-align: center;
+  color: white;
+  z-index: 20;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+}
     /* Styles pour les cartes produits */
     .product-card {
       cursor: pointer;
@@ -270,22 +279,20 @@
           <div class="carousel-overlay"></div>
           <div class="carousel-text">
             <div class="max-w-2xl px-4">
-              <h1 class="text-4xl md:text-5xl font-extrabold mb-4">Bienvenue sur ZOLA_MARKET_ONLINE</h1>
-              <p class="text-lg md:text-xl">Téléviseurs,Laptops, Smartphones & Accessoires.</p>
-             <h6 class="text-lg md:text-x0">Service après vente sans effort - La qualité au prix d'usine - Livraison rapide au Cameroun 🇨🇲</h6>
-            </div>
+              <p class="text-lg md:text-3xl text-red-300 font-bold animate-pulse" style="font-family: 'Centaur', Gadget, sans-serif;">Téléviseurs,Laptops, Smartphones & Accessoires.</p>
+             <h6 class="text-lg md:text-3x1" style="font-family: 'Microsoft Himalaya', Gadget, sans-serif;">Service après vente sans effort - La qualité au prix d'usine - Livraison rapide au Cameroun 🇨🇲</h6>
+          </div>
           </div>
         </div>
-        
-        <!-- Slide 2 : Powerbank -->
+        <!-- Slide 2 : paiement par_tranche -->  
         <div class="carousel-slide">
-          <img src="1.png" alt="Powerbank haute capacité" class="w-full h-full object-cover">
+          <img src="smartphone.jpg" alt="Powerbank haute capacité" class="w-full h-full ">
           <div class="carousel-overlay"></div>
           <div class="carousel-text">
-            <div class="max-w-2xl px-4">
-              <h2 class="text-3xl md:text-4xl font-bold mb-4">POWERBANKS HAUTE CAPACITÉ</h2>
-              <p class="text-lg">Charge rapide • Design compact • Jusqu'à 50% de réduction</p>
-              <a href="#catalogue" class="mt-6 inline-block bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-semibold">
+            <div class="max-w-2xl px-4"><br><br>
+              <p class="text-lg">Souscrivez et faites un paiement par tranche</p>
+              <h6 class="text-lg md:text-3x1 text-red-300 font-bold animate-pulse" style="font-family: 'Centaur', Gadget, sans-serif;">Offre valable uniquement pour les employés couverts par l'entreprise</h6>
+              <a href="#telephones" class="mt-6 inline-block bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-semibold">
                 Voir les offres
               </a>
             </div>
@@ -294,13 +301,14 @@
         
         <!-- Slide 3 : Smartphone -->
         <div class="carousel-slide">
-          <img src="2.png" alt="Smartphone Infinix" class="w-full h-full object-cover">
+          <img src="2.png" alt="Smartphone Infinix" class="w-full h-96 object-cover rounded-lg bg-gray-100">
           <div class="carousel-overlay"></div>
           <div class="carousel-text">
             <div class="max-w-2xl px-4">
-              <h2 class="text-3xl md:text-4xl font-bold mb-4">SMARTPHONES INNOVANTS</h2>
-              <p class="text-lg">TECNO, INFINIX, REDMI - Meilleur rapport qualité/prix</p>
-              <a href="#catalogue" class="mt-6 inline-block bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-lg font-semibold">
+           <br><br>
+              <p class="text-lg">SMARTPHONES: TECNO, INFINIX, REDMI, IPHONE, SAMSUNG</p>
+              <h6 class="text-lg md:text-3x1 text-red-300 font-bold animate-pulse" style="font-family: 'Centaur', Gadget, sans-serif;">Original, Service après vente assuré, prix défiant toute concurrence </h6>
+              <a href="#telephones" class="mt-6 inline-block bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-lg font-semibold">
                 Découvrir
               </a>
             </div>
@@ -313,9 +321,10 @@
           <div class="carousel-overlay"></div>
           <div class="carousel-text">
             <div class="max-w-2xl px-4">
-              <h2 class="text-3xl md:text-4xl font-bold mb-4">LAPTOPS PROFESSIONNELS</h2>
-              <p class="text-lg">HP & Dell • Garantie 1 an • Configurations gaming & bureautique</p>
-              <a href="#catalogue" class="mt-6 inline-block bg-purple-600 hover:bg-purple-700 text-white px-6 py-3 rounded-lg font-semibold">
+              <br><br>
+              <p class="text-lg">Laptop Professionnel marque HP, Dell, Lenovo, ...</p>
+               <h6 class="text-lg md:text-3x1 text-red-300 font-bold animate-pulse" style="font-family: 'Centaur'">• Garantie 1 an • Configurations gaming, suite bureautique et antivirus</h6>
+              <a href="#ordinateurs" class="mt-6 inline-block bg-purple-600 hover:bg-purple-700 text-white px-3 py-3 rounded-lg font-semibold">
                 Voir les laptops
               </a>
             </div>
@@ -328,39 +337,58 @@
           <div class="carousel-overlay"></div>
           <div class="carousel-text">
             <div class="max-w-2xl px-4">
-              <h2 class="text-3xl md:text-4xl font-bold mb-4">PACKS COMPLETS</h2>
-              <p class="text-lg">Smartphone + Écouteurs + Chargeur • Économisez jusqu'à 30%</p>
-              <a href="#catalogue" class="mt-6 inline-block bg-orange-600 hover:bg-orange-700 text-white px-6 py-3 rounded-lg font-semibold">
+              <br><br>
+              <p class="text-lg">Pack Complet: Smartphone + Écouteurs + Powerbank + Pochette</p>
+                <h6 class="text-lg md:text-3x1 text-red-300 font-bold animate-pulse" style="font-family: 'Centaur'">Optez pour cette solution et conomisez jusqu'à 30%</h6>
+              <a href="#telephones" class="mt-6 inline-block bg-orange-600 hover:bg-orange-600 text-white px-4 py-2 rounded-lg font-semibold shadow hover:bg-blue-700">
                 Voir les packs
               </a>
             </div>
           </div>
         </div>
 
-        <!-- Slide 6 : Chargeur Laptop -->
+       <!-- Slide 6 : Televiseurs -->
+        <div class="carousel-slide">
+          <img src="Televiseur_Hisense2.png" alt="Chargeur multi connecteurs pour technicien" class="w-full h-full ">
+          <div class="carousel-overlay"></div>
+          <div class="carousel-text">
+            <div class="max-w-2xl px-4">
+             <br><br>
+              <p class="text-lg">Téléviseurs</p>
+               <h6 class="text-lg md:text-3x1 text-red-300 font-bold animate-pulse" style="font-family: 'Centaur'">Chargeur d'origine, chargeur Multi-connecteurs idéal pour techniciens</h6>
+              <a href="#televiseurs" class="mt-6 inline-block bg-red-600 hover:bg-red-700 text-white px-6 py-3 rounded-lg font-semibold">
+                Voir les Televiseurs
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 7 : Chargeur Laptop -->
         <div class="carousel-slide">
           <img src="Chargeur_Laptop.png" alt="Chargeur multi connecteurs pour technicien" class="w-full h-full object-cover">
           <div class="carousel-overlay"></div>
           <div class="carousel-text">
             <div class="max-w-2xl px-4">
-              <h2 class="text-3xl md:text-4xl font-bold mb-4">CHARGEURS PROFESSIONNELS</h2>
-              <p class="text-lg">Tension réglable • Multi-connecteurs • Parfait pour techniciens</p>
-              <a href="#catalogue" class="mt-6 inline-block bg-red-600 hover:bg-red-700 text-white px-6 py-3 rounded-lg font-semibold">
+             <br><br>
+              <p class="text-lg">Chargeurs Laptop et Smartphone</p>
+               <h6 class="text-lg md:text-3x1 text-red-300 font-bold animate-pulse" style="font-family: 'Centaur'">Chargeur d'origine, chargeur Multi-connecteurs idéal pour techniciens</h6>
+              <a href="#accessoires" class="mt-6 inline-block bg-red-600 hover:bg-red-700 text-white px-6 py-3 rounded-lg font-semibold">
                 Voir les chargeurs
               </a>
             </div>
           </div>
         </div>
 
-        <!-- Slide 7 : Câbles Adaptateurs -->
+        <!-- Slide 8 : Câbles Adaptateurs -->
         <div class="carousel-slide">
           <img src="Cables_adaptateur.png" alt="Câbles USB et adaptateurs divers" class="w-full h-full object-cover">
           <div class="carousel-overlay"></div>
           <div class="carousel-text">
             <div class="max-w-2xl px-4">
-              <h2 class="text-3xl md:text-4xl font-bold mb-4">CÂBLES & ADAPTATEURS</h2>
-              <p class="text-lg">USB-C, iPhone, Android • Qualité premium • Prix imbattables</p>
-              <a href="#catalogue" class="mt-6 inline-block bg-indigo-600 hover:bg-indigo-700 text-white px-6 py-3 rounded-lg font-semibold">
+              <br><br>
+              <p class="text-lg">Câbles et adaptateurs</p>
+              <h6 class="text-lg md:text-3x1 text-red-300 font-bold animate-pulse" style="font-family: 'Centaur'">USB-C, iPhone, Android • Qualité premium • Prix imbattables</h6>
+              <a href="#accessoires" class="mt-6 inline-block bg-indigo-600 hover:bg-indigo-700 text-white px-6 py-3 rounded-lg font-semibold">
                 Explorer les câbles
               </a>
             </div>
@@ -397,7 +425,8 @@
       <div class="max-w-6xl mx-auto flex items-center justify-between p-4">
         <div class="flex items-center space-x-3">
           <img src="https://img.icons8.com/color/96/online-store.png" alt="Logo" class="h-12 w-12">
-          <span class="font-extrabold text-2xl text-white">ZOLA_MARKET_ONLINE</span>
+ 
+       <span class="font-extrabold text-2xl text-yellow-300 animate-pulse">ZOLA_MARKET_ONLINE</span>
         </div>
         <nav class="hidden md:flex space-x-6 font-medium">
           <a href="#home" class="text-white hover:text-yellow-300">Accueil</a>
@@ -413,20 +442,45 @@
             <span id="cartCount" class="absolute -top-2 -right-2 bg-red-500 text-white text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center">0</span>
           </div>
           <!-- Bouton WhatsApp -->
-          <a href="https://wa.me/237696507076" target="_blank" class="bg-green-500 hover:bg-green-600 px-4 py-2 rounded-lg shadow text-white">📲 WhatsApp</a>
+          <a href="https://wa.me/237696507076" target="_blank" class="bg-green-500 hover:bg-green-600 px-2 py-1 rounded-lg shadow text-white">📲 WhatsApp</a>
         </div>
       </div>
     </div>
   </header>
 
   <!-- 🔍 BARRE DE RECHERCHE -->
-  <section class="max-w-6xl mx-auto px-6 mt-6">
-    <input id="search" type="text" placeholder="Rechercher un produit..." class="w-full p-3 rounded-xl border border-gray-300 shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500" />
-  </section>
+  <section class="max-w-6xl mx-auto px-6 mt-6 flex justify-center">
+  <div class="relative w-full md:w-2/3 lg:w-1/2">
+    <input id="search" 
+           type="text" 
+           placeholder="🔍 Rechercher un produit..." 
+           class="w-full p-3 pl-12 pr-4 rounded-full border-2 border-blue-500 shadow 
+                  focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-blue-600
+                  transition duration-200" />
+    <svg class="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-500 h-5 w-5" 
+         fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+            d="M21 21l-4.35-4.35m0 0A7.5 7.5 0 104.5 4.5a7.5 7.5 0 0012.15 12.15z" />
+    </svg>
+  </div>
+</section>
+
 
   <main class="max-w-6xl mx-auto p-6">
-    <h2 class="text-2xl font-bold text-blue-600 mb-6">Nos produits en vedette</h2>
-    <div id="catalogue" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+ 
+    <!-- À placer / vérifier dans le <main> (ou exactement où tu veux que la section apparaisse) -->
+<h2 id="telephones" class="text-2xl font-bold text-blue-600 mb-6">Téléphones</h2>
+<div id="catalogue-telephones" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+
+<h2 id="ordinateurs" class="text-2xl font-bold text-blue-600 mt-12 mb-6">Ordinateurs</h2>
+<div id="catalogue-ordinateurs" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+
+<h2 id="Televiseurs" class="text-2xl font-bold text-blue-600 mt-12 mb-6">Téléviseurs</h2>
+<div id="catalogue-Televiseurs" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+
+<h2 id="accessoires" class="text-2xl font-bold text-blue-600 mt-12 mb-6">Accessoires</h2>
+<div id="catalogue-accessoires" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+
   </main>
 <!-- 🎉 EASTER EGG - Image cliquable -->
 <section class="easter-egg-section">
@@ -435,7 +489,7 @@
        class="easter-egg-image" 
        id="easterEggImage">
        
-  <p class="easter-egg-text">Célebrez avec nous les prix les plus bas. </p>
+  <p class="easter-egg-text">Célebrez avec nous les prix les plus bas!!!</p>
 </section>
 
 <!-- Modal Easter Egg -->
@@ -446,7 +500,7 @@
       <img src="easter_egg.png" alt="Image agrandie" class="w-full max-w-xs mx-auto rounded-lg mb-4">
     </div>
     <h2 class="text-2xl font-bold text-green-600 mb-4">🎉 Bravoo!!!</h2>
-    <p class="text-lg text-gray-700">Vous avez découvert le premier site de vente directement lié à l'usine, Nos prix sont bas car nous évitons les intermediaires, notre fournisseur est l'usine.</p>
+    <p class="text-lg text-gray-700">Vous êtes directement lié à l'usine, ce qui explique nos prix bas, nous evitons les intermediaires.</p>
     <div class="mt-6">
       <button id="closeEasterEggBtn" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg">
         Fermer
@@ -593,10 +647,935 @@
     const CURRENCY = "FCFA";
 
     const PRODUCTS = [
+      
+     {
+    id: "redmi-a5-64-3",
+    name: "Redmi A5 (64Go + 3Go RAM)",
+    category: "telephones",
+    price: 55000,
+    oldPrice: 69000,
+    image: "REDMI_A5.png",
+    bullets: [
+      "Écran large 6,88 pouces IPS 120Hz",
+      "Caméra 32 MP / 8 MP",
+      "Android 14, fluide et rapide"
+    ],
+    badges: ["Nouveau", "Meilleur rapport qualité/prix"],
+    description: "Le Redmi A5 (64+3) combine performance et design avec un grand écran 120Hz, une batterie longue durée et Android 14.",
+    specs: {
+      "Processeur": "UNISOC T7250 Octa-core 1.8 GHz",
+      "RAM": "3 Go",
+      "Stockage": "64 Go extensible",
+      "Écran": "6,88 pouces IPS 120Hz",
+      "Caméras": "32 MP arrière / 8 MP avant",
+      "Batterie": "5200 mAh",
+      "Système": "Android 14"
+    }
+  },
+  {
+    id: "redmi-a5-128-4",
+    name: "Redmi A5 (128Go + 4Go RAM)",
+    category: "telephones",
+    price: 59000,
+    oldPrice: 76000,
+    image: "Redmi_A5_128.png",
+    bullets: ["Grande capacité de stockage", "Écran 6,88″ 120Hz", "Android 14"],
+    badges: ["Populaire"],
+    description: "La version améliorée du Redmi A5 avec plus de RAM et stockage pour plus de fluidité.",
+    specs: {
+      "Processeur": "UNISOC T7250",
+      "RAM": "4 Go",
+      "Stockage": "128 Go extensible",
+      "Écran": "6,88 pouces IPS 120Hz",
+      "Caméras": "32 MP arrière / 8 MP avant",
+      "Batterie": "5200 mAh",
+      "Système": "Android 14"
+    }
+  },
+  {
+    id: "redmi-a3x-64-3",
+    name: "Redmi A3X (64Go + 3Go RAM)",
+    category: "telephones",
+    price: 53000,
+    oldPrice: 72500,
+    image: "Redmi A3X.jpg",
+    bullets: ["Écran 6,71″ 90Hz", "Batterie 5000 mAh", "Android 14"],
+    badges: ["Nouveau"],
+    description: "Le Redmi A3X est un smartphone abordable avec un bel écran 90Hz et une autonomie solide.",
+    specs: {
+      "Processeur": "UNISOC Tiger T603 Octa-core 1.8 GHz",
+      "RAM": "3 Go",
+      "Stockage": "64 Go extensible",
+      "Écran": "6,71 pouces IPS 90Hz",
+      "Caméras": "8 MP arrière / 5 MP avant",
+      "Batterie": "5000 mAh",
+      "Système": "Android 14"
+    }
+  },
+  {
+    id: "redmi-13-128-8",
+    name: "Redmi 13 (128Go + 8Go RAM)",
+    category: "telephones",
+    price: 85000,
+    oldPrice: 93000,
+    image: "Redmi 13.jpg",
+    bullets: ["Grande mémoire RAM", "Écran 6,7″ immersif", "Batterie longue durée"],
+    badges: ["Recommandé"],
+    description: "Le Redmi 13 est pensé pour les utilisateurs exigeants, avec une mémoire généreuse et un grand écran.",
+    specs: {
+      "Processeur": "Octa-core (modèle selon version)",
+      "RAM": "8 Go",
+      "Stockage": "128 Go",
+      "Écran": "6,7 pouces, 1600×720",
+      "Caméras": "50 MP / 8 MP",
+      "Batterie": "5000 mAh",
+      "Système": "Android 14"
+    }
+  },
+  {
+    id: "redmi-13-256-8",
+    name: "Redmi 13 (256Go + 8Go RAM)",
+    category: "telephones",
+    price: 89000,
+    oldPrice: 115000,
+    image: "Redmi 13.jpg",
+    bullets: ["Stockage élevé", "Performances fluides", "Écran large 6,7″"],
+    badges: ["Premium"],
+    description: "Version 256 Go du Redmi 13, idéale pour stocker beaucoup de photos et vidéos.",
+    specs: {
+      "Processeur": "Octa-core",
+      "RAM": "8 Go",
+      "Stockage": "256 Go",
+      "Écran": "6,7 pouces, 1600×720",
+      "Caméras": "50 MP / 8 MP",
+      "Batterie": "5000 mAh",
+      "Système": "Android 14"
+    }
+  },
+  {
+    id: "redmi-14c-128-4",
+    name: "Redmi 14C (128Go + 4Go RAM)",
+    category: "telephones",
+    price: 66500,
+    oldPrice: 84000,
+    image: "Redmi 14c.jpg",
+    bullets: ["Écran 6,88″ 120Hz", "Batterie 5160 mAh", "Android moderne"],
+    badges: ["Nouveau"],
+    description: "Le Redmi 14C est un smartphone équilibré avec un bon rapport qualité-prix.",
+    specs: {
+      "Processeur": "Octa-core ~2GHz",
+      "RAM": "4 Go",
+      "Stockage": "128 Go",
+      "Écran": "6,88 pouces, 120Hz",
+      "Caméras": "13 MP arrière / 5 MP avant",
+      "Batterie": "5160 mAh",
+      "Système": "Android 14"
+    }
+  },
+  {
+    id: "redmi-14c-256-8",
+    name: "Redmi 14C (256Go + 8Go RAM)",
+    category: "telephones",
+    price: 78500,
+    oldPrice: 91500,
+    image: "Redmi 14c.jpg",
+    bullets: ["Mémoire puissante", "Écran fluide 120Hz", "Batterie 5160 mAh"],
+    badges: ["Top vente"],
+    description: "La version 256 Go et 8 Go RAM du Redmi 14C assure puissance et stockage abondant.",
+    specs: {
+      "Processeur": "Octa-core ~2GHz",
+      "RAM": "8 Go",
+      "Stockage": "256 Go",
+      "Écran": "6,88 pouces, 120Hz",
+      "Caméras": "13 MP arrière / 5 MP avant",
+      "Batterie": "5160 mAh",
+      "Système": "Android 14"
+    }
+  },
+  {
+    id: "redmi-note14-128-6",
+    name: "Redmi Note 14 (128Go + 6Go RAM)",
+    category: "telephones",
+    price: 109000,
+    oldPrice: 133500,
+    image: "redmi_note_14_-_128_g.jpg",
+    bullets: ["Écran AMOLED 120Hz", "Batterie 5110 mAh", "Qualité photo"],
+    badges: ["Qualité Pro"],
+    description: "Le Redmi Note 14 apporte un bel écran AMOLED et de bonnes performances pour la gamme.",
+    specs: {
+      "Processeur": "Dimensity 7025 Ultra",
+      "RAM": "6 Go",
+      "Stockage": "128 Go",
+      "Écran": "6,67 pouces AMOLED 120Hz",
+      "Caméras": "50 MP + 2 MP / 16 MP",
+      "Batterie": "5110 mAh",
+      "Système": "HyperOS (Android)"
+    }
+  },
+  {
+    id: "redmi-note14-256-8",
+    name: "Redmi Note 14 (256Go + 8Go RAM)",
+    category: "telephones",
+    price: 116000,
+    oldPrice: 147000,
+    image: "redmi_note_14_-_128_g.jpg",
+    bullets: ["Stockage étendu", "Écran AMOLED", "Excellente autonomie"],
+    badges: ["Premium"],
+    description: "Version boostée du Note 14, parfaite pour plus de fluidité et stockage.",
+    specs: {
+      "Processeur": "Dimensity 7025 Ultra",
+      "RAM": "8 Go",
+      "Stockage": "256 Go",
+      "Écran": "6,67 pouces AMOLED 120Hz",
+      "Caméras": "50 MP + 2 MP / 16 MP",
+      "Batterie": "5110 mAh",
+      "Système": "HyperOS (Android)"
+    }
+  },
+  {
+    id: "redmi-note14pro-256-8",
+    name: "Redmi Note 14 Pro+ (256Go + 8Go RAM)",
+    category: "telephones",
+    price: 213000,
+    oldPrice: 253000,
+    image: "REDMI Note 14 Pro.jpg",
+    bullets: ["Caméra 200 MP", "Écran AMOLED 1.5K", "Charge rapide 120W"],
+    badges: ["Flagship Killer"],
+    description: "Le Redmi Note 14 Pro+ est une bête de puissance avec un appareil photo 200 MP et une charge ultra-rapide.",
+    specs: {
+      "Processeur": "Snapdragon 7s Gen 3 (4nm)",
+      "RAM": "8 Go",
+      "Stockage": "256 Go",
+      "Écran": "6,67 pouces AMOLED 1.5K 120Hz",
+      "Caméras": "200 MP + 8 MP + 2 MP / 16 MP",
+      "Batterie": "5110 mAh, charge 120W",
+      "Système": "HyperOS (Android)",
+      "Protection": "IP68, Gorilla Victus 2"
+    }
+  },
+  {
+    id: "redmi-note14pro-512-12",
+    name: "Redmi Note 14 Pro+ (512Go + 12Go RAM)",
+    category: "telephones",
+    price: 238000,
+    oldPrice: 289000,
+    image: "REDMI Note 14 Pro.jpg",
+    bullets: ["512 Go stockage", "12 Go RAM", "Caméra 200 MP Pro"],
+    badges: ["Haut de gamme"],
+    description: "La version ultime du Note 14 Pro+ avec stockage massif et 12 Go RAM.",
+    specs: {
+      "Processeur": "Snapdragon 7s Gen 3 (4nm)",
+      "RAM": "12 Go",
+      "Stockage": "512 Go",
+      "Écran": "6,67 pouces AMOLED 1.5K 120Hz",
+      "Caméras": "200 MP + 8 MP + 2 MP / 16 MP",
+      "Batterie": "5110 mAh, charge 120W",
+      "Système": "HyperOS (Android)",
+      "Protection": "IP68, Gorilla Victus 2"
+    }
+  },
       {
-        id: "p1",
+        id: "p2",
+        name: "Tecno_Phantom_V_Flip55 RAM 8Go, DD 256",
+        category: "telephones",
+        price: 193000,
+        oldPrice: 260000,
+        image: "techno_phantom.png",
+        bullets: ["Très bon état", "Performants et rapides", "Garantie satisfaction"],
+        badges: ["Qualité Pro"],
+        description: "Le Tecno Phantom V Flip55 est un smartphone élégant et performant avec 8 Go de RAM et 256 Go de stockage. Son design raffiné et ses fonctionnalités avancées en font un excellent choix.",
+        specs: {
+          "RAM": "8 Go",
+          "Stockage": "256 Go",
+          "Écran": "6.9 pouces AMOLED pliable",
+          "Appareil photo": "64 MP principal + 13 MP ultra-large",
+          "Batterie": "4000 mAh",
+          "OS": "Android 13"
+        }
+      },
+
+      {
+        id: "p3",
+        name: "Package Complet : Smartphone + Écouteurs + Chargeur",
+        category: "telephones",
+        price: 150500,
+        oldPrice: 210000,
+        image: "Pack_Complet.png",
+        bullets: ["Rapide et fiable", "Différentes capacités", "Idéal sauvegarde"],
+        badges: ["Top vente"],
+        description: "Ce pack complet comprend un smartphone performant, des écouteurs de qualité et un chargeur rapide. Une solution tout-en-un pour répondre à tous vos besoins mobiles.",
+        specs: {
+          "Smartphone": "Android 12, 4 Go RAM, 128 Go",
+          "Écouteurs": "Bluetooth 5.0, autonomie 6h",
+          "Chargeur": "20W charge rapide",
+          "Garantie": "12 mois sur tous les éléments",
+          "Livraison": "Gratuite dans les 3 villes",
+          "Support": "Service client 24/7"
+        }
+      },
+      {
+        id: "p4",
+        name: "Xiaomi Redmi 9T/6,53pouces/128Go/4Go RAM/48MP+8MP+2MP+2MP/8MP/6000 mAh/12 Mois",
+        category: "telephones",
+        price: 127000,
+        oldPrice: 193000,
+        image: "4.png",
+        bullets: ["Livraison Rapide après 2H", "Paiement à la livraison", "Retour gratuit sous 3jours"],
+        badges: ["Recommandé"],
+        description: "Le Xiaomi Redmi 9T est un smartphone puissant avec un écran de 6,53 pouces, 128 Go de stockage, 4 Go de RAM et une batterie de 6000 mAh. Son appareil photo de 48 MP capture des images exceptionnelles.",
+        specs: {
+          "Écran": "6,53 pouces FHD+",
+          "RAM": "4 Go LPDDR4X",
+          "Stockage": "128 Go extensible",
+          "Appareil photo": "48+8+2+2 MP arrière, 8 MP avant",
+          "Batterie": "6000 mAh, charge 18W",
+          "Processeur": "Snapdragon 662"
+        }
+      },
+      {
+        id: "tecno-101",
+        name: "Tecno 101",
+        category: "telephones",
+        price: 7000,
+        oldPrice: 9500,
+        image: "Tecno 101.jpg",
+        bullets: [
+          "Écran 6.1 pouces HD+",
+          "Appareil photo principal 8MP",
+          "Batterie 4000mAh"
+        ],
+        badges: ["Entrée de gamme", "Économique"],
+        description: "Le Tecno 101 est un smartphone d'entrée de gamme offrant les fonctionnalités essentielles à un prix abordable.",
+        specs: {
+          "Écran": "6.1 pouces HD+",
+          "Processeur": "Quad-core 1.3GHz",
+          "RAM": "2 Go",
+          "Stockage": "32 Go",
+          "Appareil photo": "8MP arrière / 5MP avant",
+          "Batterie": "4000 mAh",
+          "Système": "Android 11 Go Edition"
+        }
+      },
+      {
+        id: "tecno-302",
+        name: "Tecno 302",
+        category: "telephones",
+        price: 8000,
+        oldPrice: 11200,
+        image: "Tecno T302.jpg",
+        bullets: [
+          "Écran 6.5 pouces HD+",
+          "Double caméra 13MP + 2MP",
+          "Batterie 5000mAh"
+        ],
+        badges: ["Autonomie longue durée"],
+        description: "Le Tecno 302 offre une grande autonomie avec sa batterie de 5000mAh et un écran large de 6.5 pouces.",
+        specs: {
+          "Écran": "6.5 pouces HD+",
+          "Processeur": "Octa-core 1.8GHz",
+          "RAM": "3 Go",
+          "Stockage": "64 Go",
+          "Appareil photo": "13MP + 2MP arrière / 8MP avant",
+          "Batterie": "5000 mAh",
+          "Système": "Android 12"
+        }
+      },
+      {
+        id: "tecno-315",
+        name: "Tecno 315",
+        category: "telephones",
+        price: 9500,
+        oldPrice: 12000,
+        image: "Tecno 315.jpg",
+        bullets: [
+          "Écran 6.6 pouces HD+",
+          "Triple caméra 16MP + 2MP + AI",
+          "Batterie 5000mAh"
+        ],
+        badges: ["Appareil photo AI"],
+        description: "Le Tecno 315 dispose d'un triple appareil photo avec intelligence artificielle pour des photos optimisées.",
+        specs: {
+          "Écran": "6.6 pouces HD+",
+          "Processeur": "Octa-core 2.0GHz",
+          "RAM": "4 Go",
+          "Stockage": "64 Go",
+          "Appareil photo": "16MP + 2MP + AI arrière / 8MP avant",
+          "Batterie": "5000 mAh",
+          "Système": "Android 12"
+        }
+      },
+      {
+        id: "tecno-353",
+        name: "Tecno 353",
+        category: "telephones",
+        price: 9800,
+        oldPrice: 12500,
+        image: "Tecno 353.jpg",
+        bullets: [
+          "Écran 6.8 pouces HD+",
+          "Quad caméra 48MP + 2MP + 2MP + AI",
+          "Batterie 6000mAh"
+        ],
+        badges: ["Quad caméra", "Autonomie exceptionnelle"],
+        description: "Le Tecno 353 offre une expérience photo complète avec son quad caméra et une autonomie exceptionnelle.",
+        specs: {
+          "Écran": "6.8 pouces HD+",
+          "Processeur": "Octa-core 2.2GHz",
+          "RAM": "4 Go",
+          "Stockage": "128 Go",
+          "Appareil photo": "48MP + 2MP + 2MP + AI arrière / 16MP avant",
+          "Batterie": "6000 mAh",
+          "Système": "Android 13"
+        }
+      },
+      {
+        id: "tecno-t402",
+        name: "Tecno T402",
+        category: "telephones",
+        price: 10200,
+        oldPrice: 15700,
+        image: "Tecno T402.png",
+        bullets: [
+          "Écran 6.3 pouces HD+",
+          "Double caméra 13MP + 2MP",
+          "Batterie 4000mAh"
+        ],
+        badges: ["Compact", "Prix attractif"],
+        description: "Le Tecno T402 est un smartphone compact avec un design ergonomique et des fonctionnalités essentielles.",
+        specs: {
+          "Écran": "6.3 pouces HD+",
+          "Processeur": "Quad-core 1.6GHz",
+          "RAM": "2 Go",
+          "Stockage": "32 Go",
+          "Appareil photo": "13MP + 2MP arrière / 5MP avant",
+          "Batterie": "4000 mAh",
+          "Système": "Android 11 Go Edition"
+        }
+      },
+      {
+        id: "tecno-t528",
+        name: "Tecno T528",
+        category: "telephones",
+        price: 10800,
+        oldPrice: 14500,
+        image: "Tecno T528.jpg",
+        bullets: [
+          "Écran 6.7 pouces FHD+",
+          "Triple caméra 50MP + 2MP + 2MP",
+          "Batterie 5000mAh"
+        ],
+        badges: ["Photo haute résolution"],
+        description: "Le Tecno T528 offre une caméra principale de 50MP pour des photos détaillées et un écran FHD+ immersif.",
+        specs: {
+          "Écran": "6.7 pouces FHD+",
+          "Processeur": "Octa-core 2.0GHz",
+          "RAM": "4 Go",
+          "Stockage": "128 Go",
+          "Appareil photo": "50MP + 2MP + 2MP arrière / 16MP avant",
+          "Batterie": "5000 mAh",
+          "Système": "Android 13"
+        }
+      },
+      {
+        id: "tecno-pop10c-64-2",
+        name: "Tecno Pop10c (64Go + 2Go RAM)",
+        category: "telephones",
+        price: 49500,
+        oldPrice: 65000,
+        image: "tecno-spark-10c-3.jpg",
+        bullets: [
+          "Écran 6.6 pouces HD+",
+          "Double caméra 8MP + QVGA",
+          "Batterie 5000mAh"
+        ],
+        badges: ["Autonomie longue durée"],
+        description: "Le Tecno Pop10c offre une grande autonomie et un stockage suffisant pour un usage quotidien.",
+        specs: {
+          "Écran": "6.6 pouces HD+",
+          "Processeur": "Quad-core 1.3GHz",
+          "RAM": "2 Go",
+          "Stockage": "64 Go",
+          "Appareil photo": "8MP + QVGA arrière / 5MP avant",
+          "Batterie": "5000 mAh",
+          "Système": "Android 12 Go Edition"
+        }
+      },
+      {
+        id: "tecno-pop10-64-3",
+        name: "Tecno Pop10 (64Go + 3Go RAM)",
+        category: "telephones",
+        price: 54600,
+        oldPrice: 65000,
+        image: "tecno_pop_10_-_64_go.jpg",
+        bullets: [
+          "Écran 6.75 pouces HD+",
+          "Double caméra 8MP + AI Lens",
+          "Batterie 6000mAh"
+        ],
+        badges: ["Batterie longue durée"],
+        description: "Le Tecno Pop10 combine un grand écran, une batterie massive et des performances équilibrées.",
+        specs: {
+          "Écran": "6.75 pouces HD+",
+          "Processeur": "Octa-core 1.6GHz",
+          "RAM": "3 Go",
+          "Stockage": "64 Go",
+          "Appareil photo": "8MP + AI Lens arrière / 8MP avant",
+          "Batterie": "6000 mAh",
+          "Système": "Android 13 Go Edition"
+        }
+      },
+      {
+        id: "tecno-pop10-pro-128-4",
+        name: "Tecno Pop10 Pro (128Go + 4Go RAM)",
+        category: "telephones",
+        price: 62900,
+        oldPrice: 83000,
+        image: "Tecno-Pop-10-Pro.jpg",
+        bullets: [
+          "Écran 6.8 pouces HD+ 90Hz",
+          "Triple caméra 13MP + 2MP + AI",
+          "Batterie 6000mAh"
+        ],
+        badges: ["Écran 90Hz", "Performance améliorée"],
+        description: "Le Tecno Pop10 Pro offre une expérience fluide avec son écran 90Hz et des performances accrues.",
+        specs: {
+          "Écran": "6.8 pouces HD+ 90Hz",
+          "Processeur": "Octa-core 2.0GHz",
+          "RAM": "4 Go",
+          "Stockage": "128 Go",
+          "Appareil photo": "13MP + 2MP + AI arrière / 8MP avant",
+          "Batterie": "6000 mAh",
+          "Système": "Android 13"
+        }
+      },
+      {
+        id: "tecno-spark40-128-4",
+        name: "Tecno Spark 40 (128Go + 4Go RAM)",
+        category: "telephones",
+        price: 74000,
+        oldPrice: 89000,
+        image: "tecno_spark_40-_128_go.jpg",
+        bullets: [
+          "Écran 6.6 pouces HD+ 90Hz",
+          "Double caméra 50MP + AI Lens",
+          "Batterie 5000mAh"
+        ],
+        badges: ["Caméra 50MP", "Écran 90Hz"],
+        description: "Le Tecno Spark 40 offre une caméra de 50MP et un écran 90Hz pour une expérience multimedia complète.",
+        specs: {
+          "Écran": "6.6 pouces HD+ 90Hz",
+          "Processeur": "Octa-core 2.0GHz",
+          "RAM": "4 Go",
+          "Stockage": "128 Go",
+          "Appareil photo": "50MP + AI Lens arrière / 8MP avant",
+          "Batterie": "5000 mAh",
+          "Système": "Android 13"
+        }
+      },
+      {
+        id: "tecno-spark40-256-8",
+        name: "Tecno Spark 40 (256Go + 8Go RAM)",
+        category: "telephones",
+        price: 86500,
+        oldPrice: 98400,
+        image: "techno-spark-40-pro-1.jpg",
+        bullets: [
+          "Écran 6.6 pouces HD+ 90Hz",
+          "Double caméra 50MP + AI Lens",
+          "Batterie 5000mAh"
+        ],
+        badges: ["Stockage maximal", "Performance premium"],
+        description: "Le Tecno Spark 40 avec 256Go de stockage et 8Go de RAM offre des performances premium pour exigeants.",
+        specs: {
+          "Écran": "6.6 pouces HD+ 90Hz",
+          "Processeur": "Octa-core 2.2GHz",
+          "RAM": "8 Go",
+          "Stockage": "256 Go",
+          "Appareil photo": "50MP + AI Lens arrière / 16MP avant",
+          "Batterie": "5000 mAh",
+          "Système": "Android 13"
+        }
+      },
+      {
+        id: "tecno-spark40-pro-plus-128-8",
+        name: "Tecno Spark 40 Pro+ (128Go + 8Go RAM)",
+        category: "telephones",
+        price: 112000,
+        oldPrice: 138000,
+        image: "techno-spark-40-pro-1.jpg",
+        bullets: [
+          "Écran 6.78 pouces FHD+ 120Hz",
+          "Triple caméra 108MP + 2MP + 2MP",
+          "Batterie 5000mAh avec charge rapide"
+        ],
+        badges: ["Caméra 108MP", "Écran 120Hz"],
+        description: "Le Tecno Spark 40 Pro+ offre une caméra révolutionnaire de 108MP et un écran ultra-fluide 120Hz.",
+        specs: {
+          "Écran": "6.78 pouces FHD+ 120Hz",
+          "Processeur": "Octa-core 2.4GHz",
+          "RAM": "8 Go",
+          "Stockage": "128 Go",
+          "Appareil photo": "108MP + 2MP + 2MP arrière / 32MP avant",
+          "Batterie": "5000 mAh (charge rapide 33W)",
+          "Système": "Android 14"
+        }
+      },
+      {
+        id: "tecno-spark40-pro-plus-256-8",
+        name: "Tecno Spark 40 Pro+ (256Go + 8Go RAM)",
+        category: "telephones",
+        price: 127800,
+        oldPrice: 145000,
+        image: "techno-spark-40-pro-1.jpg",
+        bullets: [
+          "Écran 6.78 pouces FHD+ 120Hz",
+          "Triple caméra 108MP + 2MP + 2MP",
+          "Batterie 5000mAh avec charge rapide"
+        ],
+        badges: ["Stockage maximal", "Caméra 108MP"],
+        description: "Version premium du Spark 40 Pro+ avec 256Go de stockage pour contenir toutes vos photos en haute résolution.",
+        specs: {
+          "Écran": "6.78 pouces FHD+ 120Hz",
+          "Processeur": "Octa-core 2.4GHz",
+          "RAM": "8 Go",
+          "Stockage": "256 Go",
+          "Appareil photo": "108MP + 2MP + 2MP arrière / 32MP avant",
+          "Batterie": "5000 mAh (charge rapide 33W)",
+          "Système": "Android 14"
+        }
+      },
+      {
+        id: "tecno-camon40-256-8",
+        name: "Tecno Camon 40 (256Go + 8Go RAM)",
+        category: "telephones",
+        price: 145200,
+        oldPrice: 169000,
+        image: "tecno_camon_40_-_256_go_-_8_go_8.jpg",
+        bullets: [
+          "Écran 6.67 pouces AMOLED",
+          "Triple caméra 64MP + 8MP + 2MP",
+          "Batterie 5000mAh avec charge rapide"
+        ],
+        badges: ["Écran AMOLED", "Photo professionnelle"],
+        description: "Le Tecno Camon 40 offre un écran AMOLED exceptionnel et un système photo professionnel pour les créatifs.",
+        specs: {
+          "Écran": "6.67 pouces AMOLED",
+          "Processeur": "Octa-core 2.5GHz",
+          "RAM": "8 Go",
+          "Stockage": "256 Go",
+          "Appareil photo": "64MP + 8MP + 2MP arrière / 32MP avant",
+          "Batterie": "5000 mAh (charge rapide 45W)",
+          "Système": "Android 14"
+        }
+      },
+      {
+        id: "tecno-camon40-pro-256-8",
+        name: "Tecno Camon 40 Pro (256Go + 8Go RAM)",
+        category: "telephones",
+        price: 159700,
+        oldPrice: 189900,
+        image: "5s.png",
+        bullets: [
+          "Écran 6.78 pouces AMOLED 120Hz",
+          "Quad caméra 108MP + 8MP + 2MP + 2MP",
+          "Batterie 5000mAh avec charge ultra-rapide"
+        ],
+        badges: ["Flagship", "Photographie experte"],
+        description: "Le Tecno Camon 40 Pro est le flagship de la série avec un système photo quad-caméra et des performances premium.",
+        specs: {
+          "Écran": "6.78 pouces AMOLED 120Hz",
+          "Processeur": "Octa-core 2.8GHz",
+          "RAM": "8 Go",
+          "Stockage": "256 Go",
+          "Appareil photo": "108MP + 8MP + 2MP + 2MP arrière / 32MP avant",
+          "Batterie": "5000 mAh (charge ultra-rapide 65W)",
+          "Système": "Android 14"
+        }
+      },
+
+      {
+        id: "p5",
+        name: "INFINIX Hot 40i/256GB ROM/8+8GB RAM/2SIM/50+2MP/5000mAh/Garantie 12mois",
+        category: "telephones",
+        price: 79000,
+        oldPrice: 95500,
+        image: "2.png",
+        bullets: ["Livraison Rapide après 2H", "Paiement à la livraison", "Retour gratuit sous 3jours"],
+        badges: ["Top vente"],
+        description: "L'INFINIX Hot 40i offre des performances exceptionnelles avec 256 Go de stockage, 8+8 Go de RAM, un appareil photo de 50+2 MP et une batterie de 5000 mAh. Garantie 12 mois incluse.",
+        specs: {
+          "RAM": "8+8 Go (extensible)",
+          "Stockage": "256 Go",
+          "Écran": "6.7 pouces HD+",
+          "Appareil photo": "50+2 MP arrière, 8 MP avant",
+          "Batterie": "5000 mAh",
+          "OS": "Android 13, XOS 13"
+        }
+      },
+      {
+    id: "infinix-smart-8-64-2",
+    name: "Infinix Smart 8 (64Go + 2Go RAM)",
+    category: "Telephones",
+    price: 46500,
+    oldPrice: 79000,
+    image: "Infinix Smart 8.1.jpeg",
+    bullets: [
+      "Écran 6.6 pouces HD+ 90Hz",
+      "Double caméra 13MP + AI Lens",
+      "Batterie 5000mAh"
+    ],
+    badges: ["Nouveau", "Économique"],
+    description: "L'Infinix Smart 8 offre un excellent rapport qualité-prix avec un écran 90Hz fluide et une autonomie solide.",
+    specs: {
+      "Écran": "6.6 pouces HD+ 90Hz",
+      "Processeur": "Unisoc T606 Octa-core 1.6GHz",
+      "RAM": "2 Go",
+      "Stockage": "64 Go (extensible)",
+      "Appareil photo": "13MP + AI Lens arrière / 5MP avant",
+      "Batterie": "5000 mAh",
+      "Système": "Android 13 Go Edition"
+    }
+  },
+  {
+    id: "infinix-smart-10-hd-64-2",
+    name: "Infinix Smart 10 HD (64Go + 2Go RAM)",
+    category: "Telephones",
+    price: 48500,
+    oldPrice: 74000,
+    image: "infinix_smart_10_hd_-_6.jpg",
+    bullets: [
+      "Écran 6.7 pouces HD+",
+      "Double caméra 13MP + QVGA",
+      "Batterie 6000mAh"
+    ],
+    badges: ["HD Display", "Autonomie exceptionnelle"],
+    description: "L'Infinix Smart 10 HD combine un grand écran et une batterie massive de 6000mAh pour une utilisation prolongée.",
+    specs: {
+      "Écran": "6.7 pouces HD+",
+      "Processeur": "Unisoc T606 Octa-core 1.6GHz",
+      "RAM": "2 Go",
+      "Stockage": "64 Go (extensible)",
+      "Appareil photo": "13MP + QVGA arrière / 8MP avant",
+      "Batterie": "6000 mAh",
+      "Système": "Android 13"
+    }
+  },
+  {
+    id: "infinix-smart-10-64-3",
+    name: "Infinix Smart 10 (64Go + 3Go RAM)",
+    category: "Telephones",
+    price: 51500,
+    oldPrice: 75300,
+    image: "infinix_smart_10_1.jpg",
+    bullets: [
+      "Écran 6.7 pouces HD+ 90Hz",
+      "Double caméra 16MP + AI Lens",
+      "Batterie 6000mAh"
+    ],
+    badges: ["Écran 90Hz", "Performance améliorée"],
+    description: "L'Infinix Smart 10 offre une expérience plus fluide avec son écran 90Hz et 3Go de RAM pour de meilleures performances.",
+    specs: {
+      "Écran": "6.7 pouces HD+ 90Hz",
+      "Processeur": "Unisoc T606 Octa-core 1.6GHz",
+      "RAM": "3 Go",
+      "Stockage": "64 Go (extensible)",
+      "Appareil photo": "16MP + AI Lens arrière / 8MP avant",
+      "Batterie": "6000 mAh",
+      "Système": "Android 13"
+    }
+  },
+  {
+    id: "infinix-smart-10-plus-128-4",
+    name: "Infinix Smart 10 Plus (128Go + 4Go RAM)",
+    category: "Telephones",
+    price: 67800,
+    oldPrice: 83000,
+    image: "infinix_smart_10_hd_-_6.jpg",
+    bullets: [
+      "Écran 6.8 pouces HD+ 90Hz",
+      "Triple caméra 50MP + 2MP + AI Lens",
+      "Batterie 6000mAh"
+    ],
+    badges: ["Caméra 50MP", "Stockage généreux"],
+    description: "L'Infinix Smart 10 Plus se distingue par son appareil photo de 50MP et son grand stockage de 128Go.",
+    specs: {
+      "Écran": "6.8 pouces HD+ 90Hz",
+      "Processeur": "MediaTek Helio G36 Octa-core 2.2GHz",
+      "RAM": "4 Go",
+      "Stockage": "128 Go (extensible)",
+      "Appareil photo": "50MP + 2MP + AI Lens arrière / 8MP avant",
+      "Batterie": "6000 mAh",
+      "Système": "Android 13"
+    }
+  },
+  {
+    id: "infinix-smart-10-128-4",
+    name: "Infinix Smart 10 (128Go + 4Go RAM)",
+    category: "Telephones",
+    price: 58600,
+    oldPrice: 85000,
+    image: "infinix smart 10_128_4.jpg",
+    bullets: [
+      "Écran 6.7 pouces HD+ 90Hz",
+      "Double caméra 16MP + AI Lens",
+      "Batterie 6000mAh"
+    ],
+    badges: ["Version premium", "Stockage étendu"],
+    description: "Version premium du Smart 10 avec 128Go de stockage et 4Go de RAM pour une expérience utilisateur améliorée.",
+    specs: {
+      "Écran": "6.7 pouces HD+ 90Hz",
+      "Processeur": "Unisoc T606 Octa-core 1.6GHz",
+      "RAM": "4 Go",
+      "Stockage": "128 Go (extensible)",
+      "Appareil photo": "16MP + AI Lens arrière / 8MP avant",
+      "Batterie": "6000 mAh",
+      "Système": "Android 13"
+    }
+  },
+  {
+    id: "infinix-hot-50i-128-4",
+    name: "Infinix Hot 50i (128Go + 4Go RAM)",
+    category: "Telephones",
+    price: 67200,
+    oldPrice: 89000,
+    image: "infinix_hot_50_pro_4g_-_d.jpeg",
+    bullets: [
+      "Écran 6.6 pouces HD+ 90Hz",
+      "Caméra principale 50MP",
+      "Batterie 5000mAh"
+    ],
+    badges: ["Caméra 50MP", "Gaming"],
+    description: "L'Infinix Hot 50i est orienté gaming avec un processeur performant et une caméra de 50MP pour des photos de qualité.",
+    specs: {
+      "Écran": "6.6 pouces HD+ 90Hz",
+      "Processeur": "Unisoc T606 Octa-core 1.6GHz",
+      "RAM": "4 Go",
+      "Stockage": "128 Go (extensible)",
+      "Appareil photo": "50MP arrière / 8MP avant",
+      "Batterie": "5000 mAh",
+      "Système": "Android 13"
+    }
+  },
+  {
+    id: "infinix-hot-60-128-4",
+    name: "Infinix Hot 60 (128Go + 4Go RAM)",
+    category: "Telephones",
+    price: 69000,
+    oldPrice: 93800,
+    image: "infinix_hot_60i.jpg",
+    bullets: [
+      "Écran 6.78 pouces FHD+ 120Hz",
+      "Double caméra 50MP + AI Lens",
+      "Batterie 5000mAh avec charge rapide"
+    ],
+    badges: ["Écran 120Hz", "Charge rapide"],
+    description: "L'Infinix Hot 60 offre une expérience visuelle exceptionnelle avec son écran 120Hz et une charge rapide pratique.",
+    specs: {
+      "Écran": "6.78 pouces FHD+ 120Hz",
+      "Processeur": "MediaTek Helio G88 Octa-core 2.0GHz",
+      "RAM": "4 Go",
+      "Stockage": "128 Go (extensible)",
+      "Appareil photo": "50MP + AI Lens arrière / 8MP avant",
+      "Batterie": "5000 mAh (charge rapide 18W)",
+      "Système": "Android 13"
+    }
+  },
+  {
+    id: "infinix-hot-60-256-8",
+    name: "Infinix Hot 60 (256Go + 8Go RAM)",
+    category: "Telephones",
+    price: 84700,
+    oldPrice: 120000,
+    image: "INFINIX_HOT60_256_8.png",
+    bullets: [
+      "Écran 6.78 pouces FHD+ 120Hz",
+      "Double caméra 50MP + AI Lens",
+      "Batterie 5000mAh avec charge rapide"
+    ],
+    badges: ["Performance Max", "Stockage premium"],
+    description: "Version haut de gamme du Hot 60 avec 256Go de stockage et 8Go de RAM pour des performances maximales.",
+    specs: {
+      "Écran": "6.78 pouces FHD+ 120Hz",
+      "Processeur": "MediaTek Helio G88 Octa-core 2.0GHz",
+      "RAM": "8 Go",
+      "Stockage": "256 Go (extensible)",
+      "Appareil photo": "50MP + AI Lens arrière / 8MP avant",
+      "Batterie": "5000 mAh (charge rapide 18W)",
+      "Système": "Android 13"
+    }
+  },
+  {
+    id: "infinix-hot-50i-256-8",
+    name: "Infinix Hot 50i (256Go + 8Go RAM)",
+    category: "Telephones",
+    price: 85000,
+    oldPrice: 115000,
+    image: "INFINIX_HOT50I_256_8.jpg",
+    bullets: [
+      "Écran 6.6 pouces HD+ 90Hz",
+      "Caméra principale 50MP",
+      "Batterie 5000mAh"
+    ],
+    badges: ["Gaming", "Performance Ultimate"],
+    description: "Version ultime du Hot 50i avec 256Go de stockage et 8Go de RAM, conçue pour les gamers exigeants.",
+    specs: {
+      "Écran": "6.6 pouces HD+ 90Hz",
+      "Processeur": "Unisoc T606 Octa-core 1.6GHz",
+      "RAM": "8 Go",
+      "Stockage": "256 Go (extensible)",
+      "Appareil photo": "50MP arrière / 8MP avant",
+      "Batterie": "5000 mAh",
+      "Système": "Android 13"
+    }
+  },
+  {
+    id: "infinix-hot-50-pro-128-8",
+    name: "Infinix Hot 50 Pro (128Go + 8Go RAM)",
+    category: "Telephones",
+    price: 116200,
+    oldPrice: 147000,
+    image: "Infinix Hot 50 Pro.jpg",
+    bullets: [
+      "Écran 6.8 pouces FHD+ 120Hz",
+      "Triple caméra 108MP + 2MP + AI Lens",
+      "Batterie 5000mAh avec charge rapide 33W"
+    ],
+    badges: ["Caméra 108MP", "Flagship"],
+    description: "L'Infinix Hot 50 Pro est le flagship de la série avec une caméra incroyable de 108MP et des performances premium.",
+    specs: {
+      "Écran": "6.8 pouces FHD+ 120Hz",
+      "Processeur": "MediaTek Helio G99 Octa-core 2.2GHz",
+      "RAM": "8 Go",
+      "Stockage": "128 Go (extensible)",
+      "Appareil photo": "108MP + 2MP + AI Lens arrière / 16MP avant",
+      "Batterie": "5000 mAh (charge rapide 33W)",
+      "Système": "Android 13"
+      }
+      },
+
+      {
+        id: "p6",
+        name: "Tecno Camon 40 Pro Incurvé/256Go/8+8Go RAM Extensible/6,78 Pouces/2Sim/50MP+8MP+50MP/5200mAh/Garantie 24 mois",
+        category: "telephones",
+        price: 155000,
+        oldPrice: 208000,
+        image: "Camon 40 Pro incurve.png",
+        bullets: ["Livraison Rapide après 2H", "Paiement à la livraison", "Retour gratuit sous 3jours"],
+        badges: ["Recommandé"],
+        description: "Le Tecno Camon 40 Pro Incurvé est un smartphone haut de gamme avec un écran de 6,78 pouces, 256 Go de stockage, 8+8 Go de RAM extensible, un triple appareil photo et une batterie de 5200 mAh. Garantie 24 mois.",
+        specs: {
+          "Écran": "6.78 pouces AMOLED incurvé",
+          "RAM": "8+8 Go extensible",
+          "Stockage": "256 Go",
+          "Appareil photo": "50+8+50 MP arrière, 32 MP avant",
+          "Batterie": "5200 mAh, charge 70W",
+          "OS": "Android 14, HiOS 14"
+        }
+      },
+      {
+        id: "p7",
         name: "Laptop HP ProBook 440 G7 14' intel Core i5 10210U 256Go SSD RAM 8GB",
-        category: "Pièces détachées",
+        category: "ordinateurs",
         price: 140000,
         oldPrice: 350000,
         image: "HPProBook.png",
@@ -613,106 +1592,11 @@
         }
       },
       {
-        id: "p2",
-        name: "Tecno_Phantom_V_Flip55 RAM 8Go, DD 256",
-        category: "Téléphones",
-        price: 125000,
-        oldPrice: 200000,
-        image: "techno_phantom.png",
-        bullets: ["Très bon état", "Performants et rapides", "Garantie satisfaction"],
-        badges: ["Qualité Pro"],
-        description: "Le Tecno Phantom V Flip55 est un smartphone élégant et performant avec 8 Go de RAM et 256 Go de stockage. Son design raffiné et ses fonctionnalités avancées en font un excellent choix.",
-        specs: {
-          "RAM": "8 Go",
-          "Stockage": "256 Go",
-          "Écran": "6.9 pouces AMOLED pliable",
-          "Appareil photo": "64 MP principal + 13 MP ultra-large",
-          "Batterie": "4000 mAh",
-          "OS": "Android 13"
-        }
-      },
-      {
-        id: "p3",
-        name: "Écouteur Neobuds Pro True Wireless Stereo",
-        category: "Accessoires",
-        price: 5000,
-        oldPrice: 15000,
-        image: "ecouteur_Neobuds.png",
-        bullets: ["Connexion stable", "Design ergonomique", "Batterie longue durée"],
-        badges: ["Nouveau"],
-        description: "Les écouteurs Neobuds Pro True Wireless offrent une qualité sonore exceptionnelle avec une connexion stable et une autonomie prolongée. Leur design ergonomique assure un confort d'utilisation optimal.",
-        specs: {
-          "Connexion": "Bluetooth 5.2",
-          "Autonomie": "8h + 32h avec boîtier",
-          "Charge": "USB-C rapide",
-          "Résistance": "IPX5",
-          "Drivers": "10mm dynamiques",
-          "Couleurs": "Noir, Blanc"
-        }
-      },
-      {
-        id: "p4",
-        name: "Package Complet : Smartphone + Écouteurs + Chargeur",
-        category: "Téléphones",
-        price: 89999,
-        oldPrice: 200000,
-        image: "Pack_Complet.png",
-        bullets: ["Rapide et fiable", "Différentes capacités", "Idéal sauvegarde"],
-        badges: ["Top vente"],
-        description: "Ce pack complet comprend un smartphone performant, des écouteurs de qualité et un chargeur rapide. Une solution tout-en-un pour répondre à tous vos besoins mobiles.",
-        specs: {
-          "Smartphone": "Android 12, 4 Go RAM, 128 Go",
-          "Écouteurs": "Bluetooth 5.0, autonomie 6h",
-          "Chargeur": "20W charge rapide",
-          "Garantie": "12 mois sur tous les éléments",
-          "Livraison": "Gratuite dans les 3 villes",
-          "Support": "Service client 24/7"
-        }
-      },
-      {
-        id: "p5",
-        name: "Xiaomi Redmi 9T/6,53pouces/128Go/4Go RAM/48MP+8MP+2MP+2MP/8MP/6000 mAh/12 Mois",
-        category: "Téléphones",
-        price: 129000,
-        oldPrice: 193000,
-        image: "4.png",
-        bullets: ["Livraison Rapide après 2H", "Paiement à la livraison", "Retour gratuit sous 3jours"],
-        badges: ["Recommandé"],
-        description: "Le Xiaomi Redmi 9T est un smartphone puissant avec un écran de 6,53 pouces, 128 Go de stockage, 4 Go de RAM et une batterie de 6000 mAh. Son appareil photo de 48 MP capture des images exceptionnelles.",
-        specs: {
-          "Écran": "6,53 pouces FHD+",
-          "RAM": "4 Go LPDDR4X",
-          "Stockage": "128 Go extensible",
-          "Appareil photo": "48+8+2+2 MP arrière, 8 MP avant",
-          "Batterie": "6000 mAh, charge 18W",
-          "Processeur": "Snapdragon 662"
-        }
-      },
-      {
-        id: "p6",
-        name: "INFINIX Hot 40i/256GB ROM/8+8GB RAM/2SIM/50+2MP/5000mAh/Garantie 12mois",
-        category: "Téléphones",
-        price: 79000,
-        oldPrice: 150500,
-        image: "2.png",
-        bullets: ["Livraison Rapide après 2H", "Paiement à la livraison", "Retour gratuit sous 3jours"],
-        badges: ["Top vente"],
-        description: "L'INFINIX Hot 40i offre des performances exceptionnelles avec 256 Go de stockage, 8+8 Go de RAM, un appareil photo de 50+2 MP et une batterie de 5000 mAh. Garantie 12 mois incluse.",
-        specs: {
-          "RAM": "8+8 Go (extensible)",
-          "Stockage": "256 Go",
-          "Écran": "6.7 pouces HD+",
-          "Appareil photo": "50+2 MP arrière, 8 MP avant",
-          "Batterie": "5000 mAh",
-          "OS": "Android 13, XOS 13"
-        }
-      },
-      {
-        id: "p7",
+        id: "p8",
         name: "Casque Bluetooth Sans Fil Pliable",
-        category: "Téléphones",
-        price: 6000,
-        oldPrice: 15000,
+        category: "accessoires",
+        price: 6900,
+        oldPrice: 15500,
         image: "8.png",
         bullets: ["Livraison Rapide après 2H", "Paiement à la livraison", "Retour gratuit sous 3jours"],
         badges: ["Recommandé"],
@@ -727,10 +1611,10 @@
         }
       },
       {
-        id: "p8",
+        id: "p9",
         name: "Chargeur Laptop/Multi têtes/Tension Réglable",
-        category: "Accessoires",
-        price: 19000,
+        category: "accessoires",
+        price: 18500,
         oldPrice: 23000,
         image: "Chargeur_Laptop.png",
         bullets: ["Livraison Rapide après 2H", "Paiement à la livraison", "Retour gratuit sous 3jours"],
@@ -746,11 +1630,11 @@
         }
       },
       {
-        id: "p9",
+        id: "p10",
         name: "Câble USB/type C/Androïde/Iphone",
-        category: "Accessoires",
+        category: "accessoires",
         price: 1500,
-        oldPrice: 2000,
+        oldPrice: 2500,
         image: "Cables_adaptateur.png",
         bullets: ["Garantie fiabilité", "Rapport qualité/prix", "Retour gratuit sous 3jours"],
         badges: ["Recommandé"],
@@ -765,12 +1649,12 @@
         }
       },
        {
-        id: "p10",
-        name: "Smart TV Hisense 43A4K/43 pouces/Full HD",
-        category: "Téléviseurs",
+        id: "p11",
+        name: "Smart TV Hisense 43A4K/43pouces/Full HD",
+        category: "televiseurs",
         price: 144900,
         oldPrice: 195000,
-        image: "Téléviseur_Hisense2.png",
+        image: "Téléviseurs Isense.jpg",
         bullets: ["Garantie fiabilité", "Rapport qualité/prix", "Retour gratuit sous 7jours"],
         badges: ["Recommandé"],
         description: "Numérique LED Full HD/Tension: 220 - 240 V / 50hz/Entrée Ethernet / LAN: Oui",
@@ -784,9 +1668,9 @@
         }
       },
        {
-        id: "p11",
+        id: "p12",
         name: "Téléviseur OLED 4K UHD LG - 83 pouces",
-        category: "Téléviseur",
+        category: "televiseurs",
         price: 520000,
         oldPrice: 650000,
         image: "Téléviseur_LG.png",
@@ -802,23 +1686,159 @@
           "Garantie": "24 mois"
         }
       },
+{
+  id: "dell-inspiron-p102f-ryzen5",
+  name: "DELL Inspiron P102F - Ryzen 5 4000 Series",
+  category: "ordinateurs",
+  price: 99000,
+  oldPrice: 180000,
+  image: "Dell-Inspiron-7501.jpg",
+  bullets: [
+    "Processeur AMD Ryzen 5 4000 Series",
+    "Écran 15.6\" FHD (1920x1080)",
+    "SSD 256GB + RAM 8GB",
+    "Carte graphique Radeon 4GB",
+    "Windows 10 Pro 64 bits"
+  ],
+  badges: ["Performance", "Neuf", "Garantie"],
+  description: "Ordinateur portable DELL Inspiron performant avec processeur AMD Ryzen 5, écran Full HD 15.6 pouces, SSD rapide et carte graphique Radeon. Idéal pour le travail, les études et le divertissement.",
+  specs: {
+    "Marque": "DELL",
+    "Modèle": "Inspiron P102F",
+    "Processeur": "AMD Ryzen 5 4000 Series (2.38GHz, 6 cœurs)",
+    "RAM": "8 Go DDR4",
+    "Stockage": "SSD 256 Go",
+    "Écran": "15.6 pouces Full HD (1920x1080) Anti-éblouissement",
+    "Carte graphique": "AMD Radeon Graphics (4 Go total, 512 Mo dédié)",
+    "Clavier": "Clavier rétroéclairé",
+    "Connectivité": "Wi-Fi, Bluetooth, Port HDMI, USB Type-C",
+    "Système d'exploitation": "Windows 10 Pro 64 bits",
+    "Batterie": "Batterie 3 cellules (jusqu'à 6 heures d'autonomie)",
+    "Poids": "Environ 1.8 kg",
+    "Couleur": "Gris",
+    "Garantie": "1 an"
+  }
+},
+{
+  id: "lenovo-ideapad-320-i3",
+  name: "Lenovo IdeaPad 320 - Intel Core i3 7th Gen",
+  category: "ordinateurs",
+  price: 89000,
+  oldPrice: 145000,
+  image: "laptop vue2en1.png",
+  bullets: [
+    "Processeur Intel Core i3 7ème Génération",
+    "Écran 14\" FHD (1920x1080)",
+    "SSD 256GB + RAM 8GB",
+    "Carte graphique Intel HD Graphics",
+    "Windows 10 Pro 64 bits"
+  ],
+  badges: ["Compact", "Performance", "Garantie"],
+  description: "Ordinateur portable Lenovo IdeaPad 320 compact et performant avec processeur Intel Core i3 de 7ème génération, écran Full HD 14 pouces et SSD rapide. Parfait pour la mobilité et le travail quotidien.",
+  specs: {
+    "Marque": "Lenovo",
+    "Modèle": "IdeaPad 320",
+    "Processeur": "Intel Core i3 7th Generation (2.40GHz, 2 cœurs/4 threads)",
+    "RAM": "8 Go DDR4",
+    "Stockage": "SSD 256 Go",
+    "Écran": "14 pouces Full HD (1920x1080) Anti-éblouissement",
+    "Carte graphique": "Intel HD Graphics (4 Go total, 128 Mo dédié)",
+    "Connectivité": "Wi-Fi, Bluetooth, Port HDMI, USB Type-C, Ethernet",
+    "Système d'exploitation": "Windows 10 Pro 64 bits",
+    "Batterie": "Batterie lithium-ion (jusqu'à 5 heures d'autonomie)",
+    "Poids": "Environ 1.9 kg",
+    "Couleur": "Gris",
+    "Garantie": "1 an"
+  }
+},
+
+{
+  id: "lenovo-thinkpad-p43s-i7",
+  name: "Lenovo ThinkPad P43s - Intel Core i7 8th Gen",
+  category: "ordinateurs",
+  price: 140000,
+  oldPrice: 195000,
+  image: "LENOVO_THINKPAD_P43S.png",
+  bullets: [
+    "Processeur Intel Core i7 8ème Génération Octa-Core",
+    "Écran 14\" Full HD (1920x1080)",
+    "SSD 256GB + RAM 16GB",
+    "Carte graphique NVIDIA Quadro P520 2GB GDDR5",
+    "Lecteur d'empreintes digitales",
+    "Windows 10 Pro 64 bits"
+  ],
+  badges: ["Professionnel", "Haute Performance", "Workstation"],
+  description: "Station de travail mobile Lenovo ThinkPad P43s haut de gamme avec processeur Intel Core i7 de 8ème génération Octa-Core, carte graphique professionnelle NVIDIA Quadro et mémoire RAM 16GB. Conçu pour les professionnels exigeants.",
+  specs: {
+    "Marque": "Lenovo",
+    "Modèle": "ThinkPad P43s",
+    "Processeur": "Intel Core i7 8th Generation (2.11GHz, 4 cœurs/8 threads)",
+    "RAM": "16 Go DDR4",
+    "Stockage": "SSD 256 Go",
+    "Écran": "14 pouces Full HD (1920x1080) Anti-éblouissement",
+    "Carte graphique": "NVIDIA Quadro P520 (2 Go GDDR5 dédié)",
+    "Clavier": "Clavier rétroéclairé ThinkPad",
+    "Sécurité": "Lecteur d'empreintes digitales",
+    "Connectivité": "Wi-Fi, Bluetooth, Port HDMI, USB Type-C, Ethernet",
+    "Système d'exploitation": "Windows 10 Pro 64 bits",
+    "Batterie": "Batterie 3 cellules (jusqu'à 10 heures d'autonomie)",
+    "Poids": "Environ 1.5 kg",
+    "Couleur": "Noir",
+    "Garantie": "1 an"
+  }
+},
+{
+  id: "lenovo-thinkpad-t14-gen1-i5",
+  name: "Lenovo ThinkPad T14 Gen 1 - Intel Core i5 vPRO 10th Gen",
+  category: "ordinateurs",
+  price: 153000,
+  oldPrice: 210000,
+  image: "LENOVO_THINKPAD_T14_GEN1.png",
+  bullets: [
+    "Processeur Intel Core i5 vPRO 10ème Génération",
+    "Écran 14\" Full HD (1920x1080)",
+    "SSD 256GB + RAM 16GB DDR4",
+    "Technologie vPRO pour la gestion à distance",
+    "Lecteur d'empreintes digitales",
+    "Windows 11 Pro 64 bits"
+  ],
+  badges: ["vPRO", "Entreprise", "Sécurisé"],
+  description: "Ordinateur portable professionnel Lenovo ThinkPad T14 Gen 1 avec processeur Intel Core i5 vPRO de 10ème génération, technologie de gestion à distance et sécurité renforcée. Idéal pour les environnements d'entreprise.",
+  specs: {
+    "Marque": "Lenovo",
+    "Modèle": "ThinkPad T14 Gen 1",
+    "Processeur": "Intel Core i5 vPRO 10th Generation (2.21GHz, 4 cœurs/8 threads)",
+    "RAM": "16 Go DDR4",
+    "Stockage": "SSD 256 Go",
+    "Écran": "14 pouces Full HD (1920x1080) Anti-éblouissement",
+    "Carte graphique": "Intel UHD Graphics (8 Go total, 128 Mo dédié)",
+    "Clavier": "Clavier rétroéclairé ThinkPad",
+    "Sécurité": "Lecteur d'empreintes digitales, Technologie vPRO",
+    "Connectivité": "Wi-Fi 6, Bluetooth 5.0, Port HDMI, USB Type-C, Ethernet",
+    "Système d'exploitation": "Windows 11 Pro 64 bits",
+    "Batterie": "Batterie 3 cellules (jusqu'à 12 heures d'autonomie)",
+    "Poids": "Environ 1.5 kg",
+    "Couleur": "Noir",
+    "Garantie": "1 an"
+  }
+},
       {
-        id: "p12",
-        name: "Tecno Camon 40 Pro Incurvé/256Go/8+8Go RAM Extensible/6,78 Pouces/2Sim/50MP+8MP+50MP/5200mAh/Garantie 24 mois",
-        category: "Téléphones",
-        price: 155000,
-        oldPrice: 208000,
-        image: "5s.png",
-        bullets: ["Livraison Rapide après 2H", "Paiement à la livraison", "Retour gratuit sous 3jours"],
-        badges: ["Recommandé"],
-        description: "Le Tecno Camon 40 Pro Incurvé est un smartphone haut de gamme avec un écran de 6,78 pouces, 256 Go de stockage, 8+8 Go de RAM extensible, un triple appareil photo et une batterie de 5200 mAh. Garantie 24 mois.",
+        id: "p13",
+        name: "Écouteur Neobuds Pro True Wireless Stereo",
+        category: "accessoires",
+        price: 6500,
+        oldPrice: 19500,
+        image: "ecouteur_Neobuds.png",
+        bullets: ["Connexion stable", "Design ergonomique", "Batterie longue durée"],
+        badges: ["Nouveau"],
+        description: "Les écouteurs Neobuds Pro True Wireless offrent une qualité sonore exceptionnelle avec une connexion stable et une autonomie prolongée. Leur design ergonomique assure un confort d'utilisation optimal.",
         specs: {
-          "Écran": "6.78 pouces AMOLED incurvé",
-          "RAM": "8+8 Go extensible",
-          "Stockage": "256 Go",
-          "Appareil photo": "50+8+50 MP arrière, 32 MP avant",
-          "Batterie": "5200 mAh, charge 70W",
-          "OS": "Android 14, HiOS 14"
+          "Connexion": "Bluetooth 5.2",
+          "Autonomie": "8h + 32h avec boîtier",
+          "Charge": "USB-C rapide",
+          "Résistance": "IPX5",
+          "Drivers": "10mm dynamiques",
+          "Couleurs": "Noir, Blanc"
         }
       }
     ];
@@ -958,74 +1978,71 @@ document.addEventListener('keydown', (e) => {
         return `https://wa.me/${WHATSAPP_NUMBER}?text=${message}`;
     }
 
-    // Fonction pour ouvrir le modal de détail du produit
-    function openProductDetail(productId) {
-        const product = PRODUCTS.find(p => p.id === productId);
-        if (!product) return;
+  // Fonction pour ouvrir le modal de détail du produit
+function openProductDetail(productId) {
+    const product = PRODUCTS.find(p => p.id === productId);
+    if (!product) return;
 
-        // Calculer le pourcentage de réduction
-        const discount = Math.round(((product.oldPrice - product.price) / product.oldPrice) * 100);
+    // Calculer le pourcentage de réduction
+    const discount = Math.round(((product.oldPrice - product.price) / product.oldPrice) * 100);
 
-        productDetailContent.innerHTML = `
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                <!-- Image du produit -->
-                <div class="relative">
-                    <img src="${product.image}" alt="${product.name}" class="w-full h-96 object-cover rounded-lg">
-                    ${product.badges.map(badge => `
-                        <span class="absolute top-4 left-4 bg-red-500 text-white px-2 py-1 rounded-full text-xs font-bold">${badge}</span>
-                    `).join('')}
+    productDetailContent.innerHTML = `
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <!-- Image du produit -->
+            <div class="relative">
+                <img src="${product.image}" alt="${product.name}" class="max-h-[500px] w-auto mx-auto object-contain rounded-lg bg-gray-100">
+                ${product.badges.map(badge => `
+                    <span class="absolute top-4 left-4 bg-red-500 text-white px-2 py-1 rounded-full text-xs font-bold">${badge}</span>
+                `).join('')}
+            </div>
+            <!-- Détails du produit -->
+            <div class="space-y-2">
+                <div>
+                    <span class="text-sm text-gray-500 uppercase tracking-wide">${product.category}</span>
+                    <h1 class="text-2xl font-bold text-gray-900 mt-2">${product.name}</h1>
                 </div>
 
-                <!-- Détails du produit -->
-                <div class="space-y-6">
-                    <div>
-                        <span class="text-sm text-gray-500 uppercase tracking-wide">${product.category}</span>
-                        <h1 class="text-2xl font-bold text-gray-900 mt-2">${product.name}</h1>
-                    </div>
+                <!-- Prix -->
+                <div class="flex items-center space-x-2">
+                    <span class="text-3xl font-bold text-blue-600">${product.price.toLocaleString()} FCFA</span>
+                    ${product.oldPrice ? `
+                        <span class="text-lg text-gray-500 line-through">${product.oldPrice.toLocaleString()} FCFA</span>
+                        <span class="bg-red-100 text-red-800 px-2 py-1 rounded text-sm font-semibold">-${discount}%</span>
+                    ` : ''}
+                </div>
 
-                    <!-- Prix -->
-                    <div class="flex items-center space-x-4">
-                        <span class="text-3xl font-bold text-blue-600">${product.price.toLocaleString()} FCFA</span>
-                        ${product.oldPrice ? `
-                            <span class="text-lg text-gray-500 line-through">${product.oldPrice.toLocaleString()} FCFA</span>
-                            <span class="bg-red-100 text-red-800 px-2 py-1 rounded text-sm font-semibold">-${discount}%</span>
-                        ` : ''}
+                <!-- Description -->
+                <div>
+                    <h3 class="text-lg font-semibold mb-1">Description</h3>
+                    <p class="text-gray-600 leading-snug mb-1">${product.description}</p>
+                </div>
+                <!-- Caractéristiques -->
+                <div>
+                    <h3 class="text-lg font-semibold mb-1">Caractéristiques techniques</h3>
+                    <div class="grid grid-cols-1 gap-0">
+                        ${Object.entries(product.specs || {}).map(([key, value]) => `
+                            <div class="flex justify-between py-0 border-b border-gray-100">
+                                <span class="font-medium text-gray-500">${key}:</span>
+                                <span class="text-gray-400">${value}</span>
+                            </div>
+                        `).join('')}
                     </div>
+                </div>
 
-                    <!-- Description -->
-                    <div>
-                        <h3 class="text-lg font-semibold mb-2">Description</h3>
-                        <p class="text-gray-600 leading-relaxed">${product.description}</p>
-                    </div>
-
-                    <!-- Caractéristiques -->
-                    <div>
-                        <h3 class="text-lg font-semibold mb-3">Caractéristiques techniques</h3>
-                        <div class="grid grid-cols-1 gap-2">
-                            ${Object.entries(product.specs || {}).map(([key, value]) => `
-                                <div class="flex justify-between py-2 border-b border-gray-100">
-                                    <span class="font-medium text-gray-700">${key}:</span>
-                                    <span class="text-gray-600">${value}</span>
-                                </div>
-                            `).join('')}
-                        </div>
-                    </div>
-
-                    <!-- Points forts -->
-                    <div>
-                        <h3 class="text-lg font-semibold mb-2">Points forts</h3>
-                        <ul class="space-y-1">
-                            ${product.bullets.map(bullet => `
-                                <li class="flex items-start">
-                                    <svg class="h-5 w-5 text-green-500 mr-2 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                                    </svg>
-                                    <span class="text-gray-600">${bullet}</span>
-                                </li>
-                            `).join('')}
-                        </ul>
-                    </div>
-
+                <!-- Points forts -->
+                <div>
+                    <h4 class="text-lg font-semibold mb-2 leading-snug mb-2">Points forts</h4>
+                    <ul class="space-y-0 leading-snug mb-1">
+                        ${product.bullets.map(bullet => `
+                            <li class="flex items-start">
+                                <svg class="h-5 w-5 text-green-500 mr-2 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                <span class="text-gray-600">${bullet}</span>
+                            </li>
+                        `).join('')}
+                    </ul>
+                </div>
                     <!-- Boutons d'action -->
                     <div class="flex flex-col sm:flex-row gap-4 pt-6">
                         <button onclick="addToCart('${product.id}')" class="flex-1 bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-semibold flex items-center justify-center">
@@ -1056,62 +2073,90 @@ document.addEventListener('keydown', (e) => {
         productDetailModal.style.display = 'none';
         document.body.style.overflow = 'auto';
     }
+    // ----- Remplace ici ton ancienne fonction renderProducts -----
+function normalizeKey(str) {
+  if (!str) return "";
+  return str.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/\s+/g,'');
+}
 
-    // Fonction de rendu des produits
-    function renderProducts(filter = "") {
-        container.innerHTML = "";
-        PRODUCTS.filter(p => p.name.toLowerCase().includes(filter.toLowerCase())).forEach(p => {
-            const discount = p.oldPrice ? Math.round(((p.oldPrice - p.price) / p.oldPrice) * 100) : 0;
-            
-            const card = document.createElement("div");
-            card.className = "product-card bg-white shadow-md rounded-2xl overflow-hidden hover:shadow-xl transition";
-            card.innerHTML = `
-                <div onclick="openProductDetail('${p.id}')" class="cursor-pointer">
-                    <div class="relative">
-                        <img src="${p.image}" alt="${p.name}" class="w-full h-48 object-cover">
-                        ${p.badges.map(badge => `
-                            <span class="absolute top-2 left-2 bg-red-500 text-white px-2 py-1 rounded-full text-xs font-bold">${badge}</span>
-                        `).join('')}
-                        ${discount > 0 ? `
-                            <span class="absolute top-2 right-2 bg-green-500 text-white px-2 py-1 rounded-full text-xs font-bold">-${discount}%</span>
-                        ` : ''}
-                    </div>
-                    <div class="p-4">
-                        <span class="text-sm text-gray-500">${p.category}</span>
-                        <h3 class="font-bold text-lg mb-2 line-clamp-2">${p.name}</h3>
-                        <div class="flex items-center justify-between mb-3">
-                            <div>
-                                <span class="text-xl font-bold text-blue-600">${p.price.toLocaleString()} FCFA</span>
-                                ${p.oldPrice ? `<span class="text-sm text-gray-500 line-through block">${p.oldPrice.toLocaleString()} FCFA</span>` : ''}
-                            </div>
-                        </div>
-                        <ul class="text-sm text-gray-600 mb-4 space-y-1">
-                            ${p.bullets.slice(0, 2).map(bullet => `
-                                <li class="flex items-start">
-                                    <svg class="h-4 w-4 text-green-500 mr-1 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                                    </svg>
-                                    ${bullet}
-                                </li>
-                            `).join('')}
-                        </ul>
-                    </div>
-                </div>
-                <div class="p-4 pt-0 flex gap-2">
-                    <button onclick="addToCart('${p.id}')" class="flex-1 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg text-sm font-medium">
-                        Ajouter au panier
-                    </button>
-                    <a href="https://wa.me/${WHATSAPP_NUMBER}?text=Bonjour, je suis intéressé(e) par: ${encodeURIComponent(p.name)}" 
-                       target="_blank" 
-                       class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg text-sm font-medium">
-                        📲 WhatsApp
-                    </a>
-                </div>
-            `;
-            container.appendChild(card);
-        });
-    }
+function mapCategoryToSlot(category) {
+    // mappe diverses variantes à trois clés
+  const key = normalizeKey(category);
+  if (key.includes('tele') && !key.includes('viseur')) return 'telephones';
+  if (key.includes('ordi')) return 'ordinateurs';
+  if (key.includes('viseur')) return 'televiseurs';
+  return 'accessoires';
+}
 
+function renderProducts(filter = "") {
+  const telephonesContainer = document.getElementById("catalogue-telephones");
+  const ordinateursContainer = document.getElementById("catalogue-ordinateurs");
+  const accessoiresContainer = document.getElementById("catalogue-accessoires");
+
+  // Vider les conteneurs
+  [telephonesContainer, ordinateursContainer, accessoiresContainer].forEach(c => { if (c) c.innerHTML = ""; });
+
+  // normaliser filtre
+  const f = (filter || "").toLowerCase();
+
+  PRODUCTS
+    .filter(p => (p.name || "").toLowerCase().includes(f) || (p.category || "").toLowerCase().includes(f))
+    .forEach(p => {
+      // créer la carte produit (même structure que tu avais)
+      const card = document.createElement("div");
+      card.className = "bg-white shadow-md rounded-2xl overflow-hidden hover:shadow-xl transition";
+      const discount = p.oldPrice ? Math.round(((p.oldPrice - p.price) / p.oldPrice) * 100) : 0;
+
+card.innerHTML = `
+  <div onclick="openProductDetail('${p.id}')" class="cursor-pointer">
+    <div class="relative">
+      <img src="${p.image}" alt="${p.name}" class="w-full h-96 object-contain rounded-lg bg-gray-100">
+      ${p.badges.map(badge => `
+        <span class="absolute top-2 left-2 bg-red-500 text-white px-2 py-1 rounded-full text-xs font-bold">${badge}</span>
+      `).join('')}
+      ${discount > 0 ? `
+        <span class="absolute top-2 right-2 bg-green-500 text-white px-2 py-1 rounded-full text-xs font-bold">-${discount}%</span>
+      ` : ''}
+    </div>
+    <div class="p-4">
+      <span class="text-sm text-gray-500">${p.category || ''}</span>
+      <h3 class="font-bold text-lg mb-2 line-clamp-2">${p.name}</h3>
+      <div class="flex items-center justify-between mb-3">
+        <div>
+          <span class="text-xl font-bold text-blue-600">${p.price.toLocaleString()} ${CURRENCY}</span>
+          ${p.oldPrice ? `<span class="text-sm text-gray-500 line-through block">${p.oldPrice.toLocaleString()} ${CURRENCY}</span>` : ''}
+        </div>
+      </div>
+      <ul class="text-sm text-gray-600 mb-4 space-y-1">
+        ${(p.bullets || []).slice(0, 2).map(bullet => `
+          <li class="flex items-start">
+            <svg class="h-4 w-4 text-green-500 mr-1 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+            </svg>
+            ${bullet}
+          </li>
+        `).join('')}
+      </ul>
+    </div>
+  </div>
+  <div class="p-4 pt-0 flex gap-2">
+    <button onclick="addToCart('${p.id}')" class="flex-1 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg text-sm font-medium">
+      Ajouter au panier
+    </button>
+    <a href="https://wa.me/${WHATSAPP_NUMBER}?text=Bonjour, je suis intéressé(e) par: ${encodeURIComponent(p.name)}" 
+       target="_blank" 
+       class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg text-sm font-medium">
+      📲 WhatsApp
+    </a>
+  </div>
+`;
+      // calculer où l'ajouter
+      const slot = mapCategoryToSlot(p.category);
+      if (slot === 'telephones' && telephonesContainer) telephonesContainer.appendChild(card);
+      else if (slot === 'ordinateurs' && ordinateursContainer) ordinateursContainer.appendChild(card);
+      else if (accessoiresContainer) accessoiresContainer.appendChild(card); // fallback
+    });
+}
     // Événements du panier
     cartIcon.addEventListener('click', () => {
         cartModal.style.display = 'block';
